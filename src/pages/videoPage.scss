@@ -1,0 +1,14 @@
+@import "../components/variables.scss";
+@import "../components/video_page/video.scss";
+@import "../components/video_page/categorySugestions.scss";
+
+.video-container {
+  // width: 100vw;
+  padding-top: 50px;
+}
+
+@media screen and (min-width: 600px) {
+  .video-container {
+    padding-top: 0;
+  }
+}

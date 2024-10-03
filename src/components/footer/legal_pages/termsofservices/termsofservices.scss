@@ -1,0 +1,28 @@
+.terms {
+  margin-left: 2%;
+  padding-top: 15%;
+  margin-bottom: 1%;
+
+  h1 {
+    margin: 5px;
+    font-family: $font-display;
+    font-size: 20px;
+    color: $tertiary-color;
+  }
+
+  h3 {
+    margin: 5px;
+    font-family: $font-display;
+    font-size: 15px;
+  }
+
+  p {
+    font-family: $font-text;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .terms {
+    padding-top: 5%;
+  }
+}

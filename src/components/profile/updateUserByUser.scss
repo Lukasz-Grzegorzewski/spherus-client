@@ -1,0 +1,44 @@
+.form-profile {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  ::placeholder,
+  .inputs-form[type="date"]::-webkit-datetime-edit-text,
+  .inputs-form[type="date"]::-webkit-datetime-edit-month-field,
+  .inputs-form[type="date"]::-webkit-datetime-edit-day-field,
+  .inputs-form[type="date"]::-webkit-datetime-edit-year-field {
+    color: $primary-color;
+    opacity: 70%;
+  }
+
+  .inputs-form {
+    all: unset;
+    color: $primary-color;
+    font-size: 2.2rem;
+    height: 30px;
+    padding: 0 15px;
+    border: 1px solid $primary-color;
+    border-radius: 25px;
+    background-color: transparent;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    ::-webkit-datetime-edit-text {
+      color: red;
+    }
+  }
+  .btn-input {
+    background-color: transparent;
+    font-size: 2rem;
+    height: 30px;
+    border: 1px solid $primary-color;
+    border-radius: 20px;
+    padding: 5px 10px;
+
+    display: flex;
+    gap: 5px;
+  }
+}

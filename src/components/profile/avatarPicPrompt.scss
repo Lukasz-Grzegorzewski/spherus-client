@@ -1,0 +1,188 @@
+.avatar-pic-prompt-container {
+  position: fixed;
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px $primary-color;
+  color: $primary-color;
+  border-radius: 20px;
+  right: 50%;
+  translate: 50%;
+  bottom: 5%;
+  padding: 10px;
+  border: 5px solid black;
+  overflow: hidden;
+  animation-duration: 0.8s;
+  animation-name: avatarPrompt;
+  z-index: 2;
+
+  @keyframes avatarPrompt {
+    0% {
+      bottom: 100%;
+    }
+    40% {
+      bottom: -1%;
+    }
+    100% {
+      bottom: 5%;
+    }
+  }
+
+  .choose-file-container {
+    // width: 90%;
+    margin: 10px auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn-choose-file {
+      position: absolute;
+      border-radius: 20px;
+      background-color: rgb(255, 0, 0);
+      box-shadow: 0 0 5px 5px rgba(255, 255, 0, 0.65);
+      animation: blink 1500ms ease-in-out infinite;
+    }
+    @keyframes blink {
+      0% {
+        box-shadow: 0 0 5px 5px rgba(255, 255, 0, 0.65);
+      }
+      50% {
+        box-shadow: 0 0 5px 5px rgba(255, 0, 0, 0);
+      }
+      100% {
+        box-shadow: 0 0 5px 5px rgba(255, 255, 0, 0.65);
+      }
+    }
+
+    .cropCnt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .cropCanvas {
+        height: 300;
+        width: 300;
+        display: flex;
+        justify-content: center;
+        // width: 50vw !important;
+      }
+    }
+    .range-container {
+      display: flex;
+      justify-content: center;
+      .range {
+        width: 60vw;
+        margin: 0 auto;
+        // margin: 0 auto;
+      }
+    }
+  }
+
+  .btn {
+    font-size: 2.5rem;
+    height: 40px;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .btns-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    .btn-update {
+      background-color: green;
+    }
+  }
+  .btn-cancel {
+    background-color: rgb(221, 221, 221);
+    color: black !important;
+  }
+  .btn-delete {
+    width: fit-content;
+  }
+  .dis-none {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .avatar-pic-prompt-container {
+    position: fixed;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px $primary-color;
+    color: $primary-color;
+    border-radius: 20px;
+    right: 50%;
+    translate: 50%;
+    bottom: 5%;
+    padding: 10px;
+    border: 5px solid black;
+    overflow: hidden;
+    animation-duration: 0.8s;
+    animation-name: avatarPrompt;
+
+    @keyframes avatarPrompt {
+      0% {
+        bottom: 100%;
+      }
+      40% {
+        bottom: -1%;
+      }
+      100% {
+        bottom: 5%;
+      }
+    }
+
+    .choose-file-container {
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .btn-choose-file {
+        position: absolute;
+      }
+
+      .cropCnt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .cropCanvas {
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .range-container {
+        display: flex;
+        justify-content: center;
+        .range {
+          width: 60vw;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .btn {
+      font-size: 2.5rem;
+      height: 40px;
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+
+    .btns-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-around;
+      .btn-update {
+        background-color: green;
+      }
+      .btn-cancel {
+        background-color: rgb(226, 105, 105);
+      }
+    }
+  }
+}

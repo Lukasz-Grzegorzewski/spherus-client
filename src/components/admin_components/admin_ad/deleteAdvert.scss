@@ -1,0 +1,58 @@
+.deleteadvert {
+  color: $primary-color;
+
+  &_form {
+    gap: 10px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+
+    &_screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      object-fit: cover;
+      margin-top: 2%;
+      border-radius: 20px;
+
+      p {
+        font-size: 15px;
+        margin-top: 2%;
+      }
+    }
+
+    .delete {
+      margin-top: 15px;
+      margin-left: 2%;
+    }
+
+    &_label {
+      font-size: 18px;
+
+      &_select {
+        margin-top: 15px;
+        margin-left: 2%;
+        width: 80%;
+        height: 25px;
+        border-radius: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .deleteadvert {
+    &_form {
+      &_screen {
+        width: 55%;
+      }
+
+      &_label {
+        &_select {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

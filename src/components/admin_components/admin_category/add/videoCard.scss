@@ -1,0 +1,28 @@
+.video-card {
+  background-color: red;
+  & button {
+    color: $secondary-color;
+    margin: 0 auto;
+  }
+
+  & .videocard {
+    position: relative;
+    bottom: 47px;
+    padding: 10px;
+    font-size: 1.3rem;
+    background-color: $sixth-color;
+    border-radius: 0 0 20px 20px;
+    margin: 0% auto;
+  }
+  .card-title {
+    font-family: $font-text;
+  }
+
+  @media screen and (min-width: 600px) {
+    .delete_popup_box {
+      & .popup_box {
+        margin: 10% 20% 20% 30%;
+      }
+    }
+  }
+}

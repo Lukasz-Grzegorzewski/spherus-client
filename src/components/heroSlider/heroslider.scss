@@ -1,0 +1,47 @@
+@import "./sliderdata.scss";
+
+.heroslider {
+  width: 100%;
+  margin-bottom: 1%;
+
+  &_carousel {
+    width: 100%;
+    height: 100%;
+
+    .react-multiple-carousel__arrow {
+      background-color: $secondary-color;
+      border: $button-input-border-size solid $primary-color;
+
+      &:hover {
+        background-color: $primary-color;
+
+        &::before {
+          color: $secondary-color;
+        }
+      }
+
+      &::before {
+        color: $primary-color;
+      }
+    }
+
+    .react-multi-carousel-dot-list {
+      margin-bottom: 2%;
+    }
+
+    .react-multi-carousel-dot:first-child button,
+    .react-multi-carousel-dot:last-child button {
+      scale: 50%;
+    }
+
+    .react-multi-carousel-dot:nth-last-child(2) button,
+    .react-multi-carousel-dot:nth-child(2) button {
+      scale: 75%;
+    }
+
+    .react-multi-carousel-dot--active button {
+      background: $secondary-color;
+      scale: 125%;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.couilliere {
+  &_btn {
+    color: $dt-background-gradient-color-top;
+    background-color: $dt-background-gradient-color-top;
+    height: 10px;
+    width: 1px;
+    cursor: pointer;
+    font-size: 1px;
+    background: $dt-background-gradient-color-top;
+  }
+}

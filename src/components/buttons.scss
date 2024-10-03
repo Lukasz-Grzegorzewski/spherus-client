@@ -1,0 +1,422 @@
+//--------------------BUTTONS---------------------------------------------
+
+// BUTTON HERO SLIDER + ADVERT + POPUP ADMINADVERT & ADMINHOMEPAGE
+.cssbuttons-io-button {
+  background: $tertiary-color;
+  color: white;
+  font-family: $font-display;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em $primary-color;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 20px;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em $secondary-color;
+  right: 0.3em;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+  cursor: pointer;
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: $secondary-color;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+@media screen and (min-width: 600px) {
+  .cssbuttons-io-button {
+    font-size: 20px;
+  }
+}
+
+// BUTTON +- CIRCLE
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border: 2px solid $tertiary-color;
+  background-color: $tertiary-color;
+  border-radius: 25px;
+  color: $primary-color;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.2s ease-in-out;
+  font-size: 15px;
+  font-family: $font-text;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  width: 120px;
+  color: $secondary-color;
+}
+
+.add-btn::before,
+.add-btn::after {
+  transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  top: calc(50% - 2px);
+  background: $secondary-color;
+}
+
+.add-btn::after {
+  right: 14px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.add-btn::before {
+  left: 14px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.icon-btn:focus {
+  outline: none;
+}
+
+.btn-txt {
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-family: $font-display;
+}
+
+.add-btn:hover::before,
+.add-btn:hover::after {
+  width: 4px;
+  border-radius: 2px;
+}
+
+.add-btn:hover .btn-txt {
+  opacity: 1;
+}
+
+.add-icon::after,
+.add-icon::before {
+  transition: all 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 3px;
+  top: calc(50% - 10px);
+  background: $secondary-color;
+  overflow: hidden;
+}
+
+.add-icon::before {
+  left: 22px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.add-icon::after {
+  right: 22px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.add-btn:hover .add-icon::before {
+  left: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+
+.add-btn:hover .add-icon::after {
+  right: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+
+// BUTTON SUBMIT
+.submitBtn {
+  display: flex;
+  font-family: $font-text;
+  font-size: 16px;
+  background-color: $tertiary-color;
+  width: 150px;
+  height: 35px;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  align-items: center;
+  border: 2px solid $tertiary-color;
+  border-radius: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+
+  svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  span {
+    display: block;
+    margin-left: 0.6em;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    svg {
+      transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    }
+
+    .svg-wrapper {
+      animation: fly-1 0.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes fly-1 {
+      from {
+        transform: translateY(0.1em);
+      }
+
+      to {
+        transform: translateY(-0.1em);
+      }
+    }
+
+    span {
+      transform: translateX(10em);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .submitBtn {
+    width: 200px;
+  }
+}
+
+// DELETE BUTTON
+.deleteBtn {
+  font-family: $font-text;
+  font-size: 16px;
+  background-color: $tertiary-color;
+  height: 35px;
+  width: 150px;
+  text-align: center;
+  padding: 0.5em 2em;
+  border-radius: 20px;
+  position: relative;
+  color: $primary-color;
+  text-decoration: none;
+  transition: 0.2s ease all;
+  z-index: 1;
+  cursor: pointer;
+
+  &:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: $delete-color;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    color: $secondary-color;
+
+    &:before {
+      transition: 0.5s all ease;
+      left: 0;
+      right: 0;
+      opacity: 1;
+      border-radius: 20px;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .deleteBtn {
+    width: 200px;
+  }
+}
+
+.open {
+  width: 150px;
+  font-size: 12px;
+  margin: 4px;
+  z-index: 0;
+}
+
+.close {
+  width: 12px;
+  font-size: 12px;
+  margin: 4px;
+  z-index: 0;
+  padding: 0 16px 0 8px;
+  max-height: 16px;
+
+  // SHARE BUTTON
+  /*
+<button class="btn-cssbuttons">
+        <span>Button</span><span>
+          <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024" class="icon">
+            <path fill="white" d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z"></path>
+          </svg>
+        </span>
+        <ul>
+          <li>
+            <a href="https://codepen.io/sharpth"><FaTwitter /></a>
+          </li>
+          <li>
+            <a href="https://codepen.io/sharpth"><FaFacebook /></a>
+
+          </li>
+          <li>
+            <a href="https://codepen.io/sharpth"><FaWhatsapp /></a>
+          </li>
+        </ul>
+      </button>
+      */
+
+  .btn-cssbuttons {
+    --btn-color: $tertiary-color;
+    position: relative;
+    padding: 16px 32px;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: $font-text;
+    line-height: 1;
+    color: $primary-color;
+    background: none;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    filter: drop-shadow(0 2px 8px rgba(39, 94, 254, 0.32));
+    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: $tertiary-color;
+      border-radius: 24px;
+      transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    span,
+    span span {
+      display: inline-flex;
+      vertical-align: middle;
+      transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+      margin-left: 8px;
+      transition-delay: 0.1s;
+    }
+
+    span {
+      transition-delay: 0.05s;
+
+      &:first-child {
+        padding-right: 7px;
+      }
+    }
+
+    ul {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      transform: translateY(-50%);
+    }
+
+    ul li {
+      flex: 1;
+    }
+
+    ul li a {
+      display: inline-flex;
+      vertical-align: middle;
+      transform: translateY(55px);
+      transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .btn-cssbuttons .btn-cssbuttons ul li a .btn-cssbuttons:hover::before {
+    transform: scale(1.2);
+  }
+
+  .btn-cssbuttons:hover span,
+  .btn-cssbuttons:hover span span {
+    transform: translateY(-55px);
+  }
+
+  .btn-cssbuttons:hover ul li a {
+    transform: translateY(0);
+  }
+
+  .btn-cssbuttons:hover ul li:nth-child(1) a {
+    transition-delay: 0.15s;
+  }
+
+  .btn-cssbuttons:hover ul li:nth-child(2) a {
+    transition-delay: 0.2s;
+  }
+
+  .btn-cssbuttons:hover ul li:nth-child(3) a {
+    transition-delay: 0.25s;
+  }
+}

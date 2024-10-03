@@ -1,0 +1,63 @@
+.page404 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-color;
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .home-page-link {
+    cursor: pointer;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: 10px;
+    height: 30px;
+    width: 100px;
+    border: none;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .koala404 {
+    max-width: 915px;
+    width: 100%;
+    max-height: calc(100vh - 50px);
+    aspect-ratio: 10/9;
+    align-self: center;
+    border-radius: 25px 25px 0 0;
+  }
+
+  .gradient {
+    flex-grow: 1;
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(
+      linear,
+      0% 0%,
+      0% 100%,
+      from(#ffffff),
+      to($primary-color)
+    );
+
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #ffffff, $primary-color);
+
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #ffffff, $primary-color);
+
+    /* IE 10 */
+    background: -ms-linear-gradient(top, #ffffff, $primary-color);
+
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(top, #ffffff, $primary-color);
+    // background-color:  ;
+  }
+}
+
+@media screen and (min-width: 930px) {
+  .page404 {
+    .koala404 {
+      border-radius: 25px;
+    }
+  }
+}

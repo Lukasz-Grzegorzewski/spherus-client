@@ -1,0 +1,98 @@
+@import "../menus/menuSearch.scss";
+
+.navbar-mobile {
+  background-color: transparent;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 10px 0;
+  color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  .burger {
+    all: unset;
+    height: 20px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    padding: 5px;
+    .bar {
+      height: 2px;
+      background-color: $primary-color;
+      box-shadow: 0 0 5px 3px $secondary-color;
+    }
+    .bar1 {
+      position: absolute;
+      top: 0;
+      width: 30px;
+    }
+    .bar2 {
+      position: absolute;
+      top: 45%;
+      opacity: 1;
+      width: 40px;
+    }
+    .bar3 {
+      position: absolute;
+      top: 90%;
+      width: 20px;
+    }
+  }
+
+  .burger.inactive {
+    .bar1 {
+      width: 30px;
+      rotate: 0deg;
+      transition: all 500ms ease-in-out;
+    }
+    .bar2 {
+      width: 40px;
+      opacity: 1;
+      transition: all 500ms ease-in-out;
+    }
+    .bar3 {
+      width: 20px;
+      rotate: 0deg;
+      transition: all 500ms ease-in-out;
+    }
+  }
+  .burger.active {
+    .bar1 {
+      rotate: -45deg;
+      top: 50%;
+      width: 30px;
+      transition: all 500ms ease-in-out;
+    }
+    .bar2 {
+      opacity: 0;
+    }
+    .bar3 {
+      //   position: absolute;
+      rotate: 45deg;
+      top: 50%;
+      transition: all 500ms ease-in-out;
+      width: 30px;
+    }
+  }
+
+  .btn-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    background-color: transparent;
+    svg.loop {
+      color: $primary-color;
+      padding-top: 10px;
+      width: 30px;
+      filter: drop-shadow(0 0 3px $secondary-color);
+    }
+  }
+}

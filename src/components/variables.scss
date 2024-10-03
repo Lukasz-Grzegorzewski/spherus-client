@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+$font-display: "Kdam Thmor Pro", "sans-serif";
+$font-text: "Roboto", "sans-serif";
+
+$primary-color: #f5f5f5;
+$secondary-color: #38383d;
+$tertiary-color: #ff8a00;
+$fourth-color: #888888;
+$fifte-color: #555555;
+$sixth-color: rgb(85, 85, 85, 0.5);
+$seventh-color: #01153d;
+$delete-color: #e14d2a;
+
+//THEME TOGGLE
+$dt-toggle-background-color-font: black;
+
+$lt-toggle-color-border: black;
+
+//BUTTONS
+$button-input-border-size: 2px;
+$button-input-border-color: white;
+$button-background-login: #ff8a00;
+$button-background-one: transparent;
+
+$button-background-off: red;
+$button-background-on: green;
+
+//PLACEHOLDER
+$placeholder-font-color: #888888;
+
+//--------------------LIGHT THEME---------------------------------------------
+//BACKGROUND VARIABLES
+$lt-background-gradient-color-top: #d1ddeb;
+$lt-background-gradient-color-middle: #8fa5bc;
+$lt-background-gradient-color-bottom: #d1ddeb;
+
+//background
+// $lt-background: linear-gradient(180deg,
+//     $lt-background-gradient-color-top 17.97%,
+//     $lt-background-gradient-color-middle 53.4%,
+//     $lt-background-gradient-color-bottom 80%);
+$lt-background: $primary-color;
+
+//footer / navbar
+$lt-navbar-footer-color: $fifte-color;
+//publicity
+$lt-publicity-background-color: $seventh-color;
+$lt-publicity-font-color: #555555;
+
+//--------------------DARK THEME---------------------------------------------
+
+//BACKGROUND VARIABLES
+$dt-background-gradient-color-top: #01153d;
+$dt-background-gradient-color-first-middle: #000000;
+$dt-background-gradient-color-middle: #001c3f;
+$dt-background-gradient-color-bottom: #000000;
+//background
+$dt-background: linear-gradient(
+  180deg,
+  $dt-background-gradient-color-top 10.6%,
+  $dt-background-gradient-color-first-middle 20.6%,
+  $dt-background-gradient-color-middle 60.7%,
+  $dt-background-gradient-color-bottom 80%,
+  $dt-background-gradient-color-top 95%
+);
+//footer / navbar
+$dt-navbar-footer-color: $sixth-color;
+
+//Advert
+$dt-publicity-background-color: $fifte-color;
+$dt-publicity-font-color: $primary-color;
+
+//button
+$dt-button-font-color: #ffffff;

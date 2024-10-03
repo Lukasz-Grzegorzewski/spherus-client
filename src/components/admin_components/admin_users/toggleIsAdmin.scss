@@ -1,0 +1,43 @@
+.toggle-is-admin-container {
+  display: flex;
+  position: relative;
+  margin-left: 170px;
+
+  input[type="checkbox"].toggle {
+    opacity: 0;
+    position: absolute;
+  }
+
+  input[type="checkbox"].toggle + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"].toggle + label::after {
+    content: "";
+    width: 8rem;
+    height: 2rem;
+    background-color: transparent;
+    border: 2px solid $primary-color;
+    border-radius: 2rem;
+  }
+
+  input[type="checkbox"].toggle + label::before {
+    position: absolute;
+    right: 2.6rem;
+    content: "";
+    width: 5rem;
+    height: 1.3rem;
+    background-color: crimson;
+    border: 2px solid $primary-color;
+    border-radius: 2rem;
+    transition: all 150ms ease-in-out;
+  }
+  input[type="checkbox"].toggle:checked + label::before {
+    background-color: greenyellow;
+    right: 0.4rem;
+  }
+}

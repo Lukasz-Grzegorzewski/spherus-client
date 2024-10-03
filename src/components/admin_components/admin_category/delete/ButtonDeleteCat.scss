@@ -1,0 +1,11 @@
+.button_delete_category {
+  display: flex;
+  align-items: center;
+
+  & .category {
+    width: 150px;
+    font-size: 12px;
+    margin: 0 4px;
+    z-index: 0;
+  }
+}

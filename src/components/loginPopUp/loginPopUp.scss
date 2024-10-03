@@ -1,0 +1,166 @@
+.login-pop-up {
+  animation: soft-fade-in 0.7s ease-out;
+  position: absolute;
+  top: 12%;
+
+  &_card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 80vw;
+    height: 65vh;
+    left: 10vw;
+    border-radius: 6px;
+
+    .login-form {
+      input {
+        font-family: $font-text;
+        background-color: transparent !important;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 8px 0;
+        width: 90%;
+
+        &:focus {
+          background-color: transparent !important;
+          outline: none;
+        }
+      }
+    }
+
+    h4 {
+      padding-top: 24px;
+      text-align: center;
+      font-family: $font-text;
+      color: $secondary-color;
+      font-size: 16px;
+      opacity: 0.8;
+    }
+
+    .close_btn {
+      color: $tertiary-color;
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      left: 90%;
+      top: 3%;
+      cursor: pointer;
+    }
+    .login-form {
+      // form {
+      width: 100%;
+      font-size: 16px;
+      justify-content: center;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6rem;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 80%;
+      }
+
+      .btn-registration-label {
+        .btn-registration {
+          opacity: 0.85;
+          margin-inline: auto;
+          position: relative;
+          height: 45px;
+          width: 180px;
+          font-family: $font-text;
+          font-weight: 700;
+          font-size: 15px;
+          letter-spacing: 2px;
+          color: #383736;
+          border: 2px #383736 solid;
+          border-radius: 4px;
+          text-transform: uppercase;
+          outline: 0;
+          overflow: hidden;
+          background: none;
+          z-index: 1;
+          cursor: pointer;
+          transition: 0.08s ease-in;
+          -o-transition: 0.08s ease-in;
+          -ms-transition: 0.08s ease-in;
+          -moz-transition: 0.08s ease-in;
+          -webkit-transition: 0.08s ease-in;
+          &:before {
+            content: "";
+            position: absolute;
+            background: #383736;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 100%;
+            z-index: -1;
+            transition: top 0.09s ease-in;
+          }
+
+          &:hover:before {
+            top: 0;
+          }
+
+          &:hover {
+            color: whitesmoke;
+            opacity: 1;
+            animation: fadeIn 1s ease-out forwards;
+          }
+        }
+      }
+
+      .forgotten-password {
+        font-family: $font-text;
+        font-size: 14px;
+        padding-inline: 12px;
+        color: black;
+        opacity: 0.8;
+        text-align: end;
+
+        & a {
+          font-weight: bold;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .login-pop-up {
+    top: 15vh;
+
+    &_card {
+      height: 75vh;
+      left: 25vw;
+      width: 50vw;
+
+      .forgotten-password {
+        margin-right: 32px;
+      }
+    }
+  }
+}
+
+@keyframes soft-fade-in {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

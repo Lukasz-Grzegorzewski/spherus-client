@@ -1,0 +1,96 @@
+.section {
+  &_container {
+    width: 90%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 4%;
+    .react-multiple-carousel__arrow {
+      background-color: $secondary-color;
+      border: $button-input-border-size solid $primary-color;
+
+      &:hover {
+        background-color: $primary-color;
+        border: $button-input-border-size solid $secondary-color;
+
+        &::before {
+          color: $secondary-color;
+        }
+      }
+
+      &::before {
+        color: $primary-color;
+      }
+    }
+
+    .react-multiple-carousel__arrow {
+      background-color: $secondary-color;
+      border: $button-input-border-size solid $primary-color;
+
+      &:hover {
+        background-color: $primary-color;
+
+        &::before {
+          color: $secondary-color;
+        }
+      }
+
+      &::before {
+        color: $primary-color;
+      }
+    }
+
+    .react-multi-carousel-item {
+      width: 380px;
+
+      &:active {
+        width: 320px;
+      }
+    }
+
+    &_carousel {
+      width: 100%;
+
+      &_card {
+        width: 320px;
+      }
+    }
+
+    .section_navigation {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      font-family: $font-text;
+      margin-bottom: 1%;
+
+      .section_name {
+        font-family: $font-text;
+        font-size: 3rem;
+        width: 100%;
+        font-family: $font-display;
+        margin-bottom: 1%;
+      }
+
+      .section_seeMoreBtn {
+        display: flex;
+
+        .section_seeMoreBtn_btn {
+          text-align: center;
+          padding: 5px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &_container:empty {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .section_container {
+    margin-bottom: 2%;
+  }
+}

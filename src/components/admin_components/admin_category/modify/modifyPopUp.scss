@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  .buttons_popup {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .modify {
+    .buttons_popup {
+      flex-direction: row;
+    }
+  }
+}

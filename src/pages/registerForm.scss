@@ -1,0 +1,96 @@
+.registration-page {
+  padding-block: 70px;
+  ._form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
+    padding-block: 12px;
+    margin-block: 32px;
+    margin-inline: auto;
+    gap: 24px;
+    height: calc(100vh - 160px);
+    box-shadow: 0 0 5px 1px $primary-color;
+    margin-top: 2%;
+
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      font-family: $font-text;
+    }
+
+    input {
+      border-radius: 20px;
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      min-height: 30px;
+      width: 80%;
+      text-indent: 16px;
+      font-family: $font-text;
+
+      &:focus {
+        animation: fade 0.2s ease-in;
+        outline: thick double #6bcdf4;
+      }
+
+      &[type="date"] {
+        font-size: 12px;
+        text-indent: 8px;
+        color: rgb(108, 108, 108);
+
+        &::-webkit-calendar-picker-indicator {
+          color: rgba(0, 0, 0, 0);
+          opacity: 1;
+          display: block;
+          background-repeat: no-repeat;
+          width: 25px;
+          padding-right: 12px;
+          height: 20px;
+          border-width: thin;
+        }
+      }
+    }
+
+    .submitBtn.registerForm {
+      padding-block: 16px;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    .wrong-email {
+      animation: border-fade-in 2s infinite ease;
+      border-bottom-left-radius: 0;
+      border-radius: 20px;
+      border: 1px solid rgb(255, 8, 8);
+    }
+  }
+}
+
+@keyframes fade {
+  0% {
+    outline: none;
+  }
+
+  100% {
+    outline: thick double #6bcdf4;
+  }
+}
+
+@keyframes border-fade-in {
+  0% {
+    box-shadow: 0 0 10px rgb(179, 0, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 3px rgb(179, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 10px rgb(179, 0, 0);
+  }
+}

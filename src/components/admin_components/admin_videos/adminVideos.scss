@@ -1,0 +1,113 @@
+.adminvideo_file_title {
+  font-size: 18px;
+  text-align: center;
+}
+
+.adminvideo_container {
+  width: 95%;
+  height: auto;
+  padding: 15px;
+  margin-right: 20px;
+  font-family: $font-text;
+  box-shadow: 0 0 5px 1px $primary-color;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: $font-text;
+  }
+
+  .adminvideo_file_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .adminvideo_file_label {
+    font-size: 18px;
+  }
+
+  .adminvideo_file_input {
+    background-color: $sixth-color;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .adminvideo_fields_input {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 10px;
+    border-bottom: 1px solid $primary-color;
+    padding-bottom: 15px;
+
+    label {
+      font-size: 18px;
+    }
+
+    input,
+    select,
+    option {
+      background-color: $primary-color;
+      border: $button-input-border-size;
+      height: 25px;
+      border-radius: 20px;
+    }
+
+    option {
+      width: 30%;
+    }
+
+    .update_video_form_btn {
+      margin: 10px auto;
+    }
+  }
+
+  .delete_video_container {
+    width: 80%;
+    padding-bottom: 15px;
+    border-bottom: 1px solid white;
+    margin: auto;
+
+    h2 {
+      font-family: $font-text;
+      font-size: 18px;
+      text-align: center;
+      margin: 30px 0 15px 0;
+    }
+
+    .delete_video_selection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .delete_video_select {
+      width: 100%;
+    }
+
+    input,
+    select,
+    option {
+      background-color: $primary-color;
+      border: $button-input-border-size;
+      height: 25px;
+      border-radius: 15px;
+    }
+
+    .delete_Btn {
+      margin-top: 1%;
+      width: 200px;
+    }
+  }
+}

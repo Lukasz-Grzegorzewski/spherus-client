@@ -1,0 +1,37 @@
+.adminHomeAddSection {
+  &_form {
+    &_label {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-family: $font-text;
+      font-size: 15px;
+      margin-bottom: 4%;
+
+      &_select {
+        width: 32%;
+        height: 25px;
+        border-radius: 20px;
+      }
+    }
+
+    &_title {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .adminHomeAddSection {
+    &_form {
+      &_label {
+        font-size: 18px;
+
+        &_select {
+          width: 34%;
+        }
+      }
+    }
+  }
+}

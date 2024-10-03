@@ -1,0 +1,31 @@
+.label-container:not(:last-of-type) {
+  border-bottom: 1px solid $fourth-color;
+}
+
+.label-container {
+  margin: 0 auto;
+  width: 90%;
+  .label {
+    margin: 5px 0;
+    .pen {
+      font-size: 1.5rem;
+    }
+    .input {
+      display: none;
+    }
+    .pen-plus-email {
+      margin-left: 10px;
+      width: 90%;
+      padding: 2px 0;
+    }
+  }
+}
+label:has(.input:checked) .pen-plus-email {
+  border-radius: 20px;
+  box-shadow: inset 0 0 10px 1px $primary-color;
+  scale: 1.1;
+}
+
+label:has(.input:checked) .pen {
+  color: $tertiary-color;
+}

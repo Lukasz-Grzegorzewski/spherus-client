@@ -1,0 +1,50 @@
+@import "./add/buttonOpenAddCat.scss";
+@import "./delete/buttonDeleteCat.scss";
+@import "./add/buttonAddCat.scss";
+@import "./delete/deletePopUp.scss";
+@import "./delete/messageConfirmation.scss";
+@import "./categories.scss";
+@import "./modify/buttonOpenModify.scss";
+@import "./add/showVideos.scss";
+@import "./modify/buttonModifyCat.scss";
+@import "./modify/modifyPopUp.scss";
+@import "./add/videoCard.scss";
+
+.select-category {
+  box-shadow: 0 0 5px 1px #f5f5f5;
+  border-radius: 20px;
+  margin: 1rem;
+  .class_Text {
+    font-family: $font-text;
+    font-size: 1.5rem;
+  }
+
+  .select-input-inp {
+    font-size: 2rem;
+    color: $primary-color;
+  }
+
+  & .add-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    height: auto;
+
+    & p {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .select-category {
+    width: 100%;
+
+    & .add-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

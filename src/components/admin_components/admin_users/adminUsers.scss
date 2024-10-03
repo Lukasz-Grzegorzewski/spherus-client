@@ -1,0 +1,98 @@
+@import "./users.scss";
+@import "./toggleIsAdmin.scss";
+
+::-webkit-scrollbar {
+  margin-right: 10px;
+  width: 1em;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgb(255, 255, 255);
+  border-radius: 100vw;
+  margin-block: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 0, 0);
+  box-shadow: inset 0 0 6px 2px rgb(255, 255, 255);
+  border-radius: 100vw;
+}
+
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: rgb(0, 0, 0) rgba(255, 255, 255, 0.5);
+    scrollbar-width: auto;
+  }
+}
+
+.admin-users-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 10px 10px;
+  box-shadow: 0 0 5px 1px $primary-color;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-size: 2rem;
+  overflow: hidden;
+
+  .users-admins-choice-container {
+    position: relative;
+    top: 0;
+    display: flex;
+    gap: 15px;
+    .label-users-admins {
+      box-shadow: 0 0 7px 0px $primary-color;
+      border-radius: 0 0 10px 10px;
+      padding: 10px;
+      input {
+        display: none;
+      }
+    }
+    .label-users-admins:has(.input:checked) {
+      box-shadow: inset 0 0 10px 4px $tertiary-color;
+      scale: 1.2;
+    }
+  }
+
+  .input-search {
+    all: unset;
+    color: $primary-color;
+    border-radius: 10px;
+    padding: 2px 10px;
+    box-shadow: 0 0 5px 1px $primary-color;
+    background-color: transparent;
+  }
+  .users-table-container {
+    width: 100%;
+    .users-table {
+      max-height: 150px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      border: 1px solid white;
+      border-radius: 15px;
+      padding-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .headers {
+      text-align: center;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  // .users-table-container:has(.users-table:empty) {
+  //   display: none;
+  // }
+  .user-block {
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .admin-users-container {
+    margin: 0 0;
+  }
+}

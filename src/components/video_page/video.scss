@@ -1,0 +1,180 @@
+@import "../variables.scss";
+
+.video-component {
+  font-family: $font-text;
+
+  .video-player {
+    position: relative;
+
+    .video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    .video.locked {
+      opacity: 40%;
+    }
+
+    .info-video {
+      transition: all 1000ms ease-in-out;
+      position: absolute;
+      left: 5%;
+      bottom: 30%;
+      padding: 10px 60px 10px 10px;
+      border-radius: 10px;
+      font-family: $font-text;
+      font-weight: 100;
+      font-size: 1.3rem;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        100deg,
+        rgba(0, 0, 0, 0.5) 55%,
+        rgba(138, 138, 154, 0) 83%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      color: white;
+
+      .video-title {
+        font-family: $font-display;
+        font-size: 2rem;
+      }
+
+      .video-categories-container {
+        display: flex;
+        gap: 10px;
+      }
+    }
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    padding: 3% 12% 0 12%;
+
+    .prevBtn {
+      width: 50px;
+      height: auto;
+      background-color: transparent;
+      position: absolute;
+      cursor: pointer;
+      padding-top: 10px;
+      left: -5px;
+      cursor: pointer;
+
+      .arrow {
+        color: $tertiary-color;
+        width: 45px;
+        height: auto;
+      }
+    }
+
+    .lock-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .lock-icon {
+        font-size: 4rem;
+        color: $fourth-color;
+      }
+
+      .lock-desc {
+        font-size: 1.7rem;
+        color: $fourth-color;
+      }
+
+      .btn {
+        font-size: 1.7rem;
+        background-color: $tertiary-color;
+        border-radius: 2rem;
+        margin-left: 5px;
+        color: $primary-color;
+        padding: 5px;
+        cursor: pointer;
+      }
+    }
+
+    .info_container {
+      font-size: 1.5rem;
+
+      .info-video-title {
+        font-family: $font-display;
+        font-size: 3.5rem;
+      }
+
+      .info {
+        margin-block: 10px;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+
+      .info-video-categories-container {
+        display: flex;
+        gap: 10px;
+      }
+
+      .p-desc {
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  .section-container {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .video-component {
+    .video-player {
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      .video {
+        width: 100%;
+        aspect-ratio: 21/9;
+      }
+
+      .video.locked {
+        opacity: 40%;
+      }
+
+      .info-video {
+        bottom: 18%;
+        font-size: large;
+
+        font-size: small;
+
+        .video-title {
+          font-family: $font-display;
+          font-size: 3rem;
+        }
+
+        .video-desc {
+          font-size: 1.7rem;
+        }
+
+        .video-categories-container {
+          display: flex;
+          gap: 10px;
+        }
+      }
+    }
+
+    .description {
+      padding: 3% 5% 1% 5%;
+
+      .lock-container {
+        .lock-desc {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

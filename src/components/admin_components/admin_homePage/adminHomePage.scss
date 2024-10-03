@@ -1,0 +1,103 @@
+@import "./adminHomeCurrentComp.scss";
+@import "./adminHomeAddPub.scss";
+@import "./popupAddComponent.scss";
+@import "./adminHomeDragInComp.scss";
+@import "./dragVideosList.scss";
+
+.adminhomepage {
+  width: 96%;
+  box-shadow: 0 0 5px 1px $primary-color;
+  padding: 1%;
+  border-radius: 20px;
+
+  &_admin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    border-bottom: 2px solid $tertiary-color;
+
+    h1 {
+      font-family: $font-display;
+      font-size: 25px;
+      margin-top: 1%;
+    }
+
+    &_add {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-bottom: 3%;
+      margin-top: 4%;
+
+      &_title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+
+        h2 {
+          font-family: $font-text;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  &_current {
+    width: 100%;
+    margin-left: 1%;
+
+    h1 {
+      font-family: $font-display;
+      font-size: 20px;
+      margin-top: 3%;
+      margin-bottom: 3%;
+    }
+
+    &_comp {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .adminhomepage {
+    display: flex;
+    flex-direction: row;
+    min-height: 700px;
+
+    &_admin {
+      width: 48%;
+      border-bottom: none;
+      border-right: 2px solid $primary-color;
+
+      h1 {
+        font-size: 30px;
+      }
+
+      &_add {
+        margin-top: 7%;
+
+        h2 {
+          font-size: 25px;
+        }
+      }
+    }
+
+    &_current {
+      width: 48%;
+
+      h1 {
+        font-size: 30px;
+        margin-top: 1%;
+      }
+
+      &_comp {
+        align-items: center;
+      }
+    }
+  }
+}

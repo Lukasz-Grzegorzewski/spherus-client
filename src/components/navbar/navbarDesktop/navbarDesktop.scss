@@ -1,0 +1,25 @@
+.navbar-desktop {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+  padding-right: 5px;
+
+  .btn-svg {
+    all: unset;
+    cursor: pointer;
+    padding-top: 10px;
+    svg {
+      width: 25px;
+    }
+  }
+
+  .btn-img-avatar {
+    all: unset;
+    cursor: pointer;
+    .img-avatar-profil {
+      border-radius: 20px;
+      height: 40px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.button-open-modify {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  & .deleteBtn {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .button-open-modify {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}

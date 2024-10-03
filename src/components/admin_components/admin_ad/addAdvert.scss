@@ -1,0 +1,76 @@
+.addadvert {
+  &_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+
+    &_container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border-radius: 20px;
+
+      &_screen {
+        align-items: center;
+        width: 90%;
+        object-fit: cover;
+        margin-top: 2%;
+        border-radius: 20px;
+      }
+
+      &_label {
+        font-size: 18px;
+      }
+
+      &_input {
+        border-radius: 20px;
+        text-indent: 2%;
+        height: 25px;
+        width: 80%;
+        margin-left: 2%;
+        border: none;
+      }
+
+      &_textarea {
+        border-radius: 20px;
+        text-indent: 3%;
+        height: 120px;
+        width: 80%;
+        margin-left: 2%;
+        font-size: 15px;
+        font-family: $font-text;
+      }
+
+      .submitBtn {
+        margin-top: 15px;
+        margin-left: 2%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .addadvert {
+    &_form {
+      &_container {
+        &_screen {
+          width: 20%;
+
+          margin-left: 15%;
+        }
+
+        &_input {
+          width: 50%;
+        }
+
+        &_textarea {
+          height: 150px;
+          width: 50%;
+        }
+      }
+    }
+  }
+}

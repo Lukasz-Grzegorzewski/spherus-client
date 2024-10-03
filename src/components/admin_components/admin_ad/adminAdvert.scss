@@ -1,0 +1,32 @@
+@import "./addAdvert.scss";
+@import "./deleteAdvert.scss";
+@import "./popupAdvert.scss";
+
+.adminad {
+  width: 96%;
+  box-shadow: 0 0 5px 1px $primary-color;
+  border-radius: 20px;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &_separate {
+    display: flex;
+    align-self: center;
+    width: 70%;
+    margin-top: 2%;
+    border-bottom: 2px solid $primary-color;
+  }
+
+  &_box {
+    width: 100%;
+    margin-left: 1%;
+    margin-top: 1%;
+
+    &_title {
+      font-family: $font-display;
+      font-size: 25px;
+    }
+  }
+}

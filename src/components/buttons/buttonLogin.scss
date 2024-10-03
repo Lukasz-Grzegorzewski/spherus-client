@@ -1,0 +1,17 @@
+.button-container {
+  .thumbnail-container {
+    .button-login {
+      font-family: $font-text;
+      background-color: $tertiary-color;
+      width: 120px;
+      height: 40px;
+      border-radius: 20px;
+      font-size: 2rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}

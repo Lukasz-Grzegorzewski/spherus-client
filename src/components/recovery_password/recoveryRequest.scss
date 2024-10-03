@@ -1,0 +1,27 @@
+.login-page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  .login-pop-up {
+    &_card {
+      height: 80vh;
+      h2 {
+        text-align: center;
+        font-size: 24px;
+        font-family: $font-text;
+        padding-top: 24px;
+        color: $secondary-color;
+        font-family: $font-text;
+      }
+
+      h3 {
+        text-align: center;
+        font-size: 18px;
+        font-family: $font-text;
+        padding-top: 24px;
+        color: $secondary-color;
+      }
+    }
+  }
+}

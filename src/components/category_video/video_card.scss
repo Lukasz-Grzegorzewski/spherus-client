@@ -1,0 +1,92 @@
+.videoCard {
+  width: 330px;
+
+  .main {
+    position: relative;
+    width: 330px;
+
+    .videocard {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      font-family: $font-text;
+
+      &_video {
+        width: 320px;
+        height: 222px;
+        overflow: hidden;
+        border-radius: 20px;
+      }
+
+      &_video_description {
+        position: relative;
+        bottom: 47px;
+        padding: 15px;
+        font-size: 1.8rem;
+        font-weight: bold;
+        background-color: $sixth-color;
+        border-radius: 0 0 20px 20px;
+      }
+
+      &_fav_btn {
+        position: absolute;
+        z-index: 2;
+        background-color: transparent;
+        right: 20px;
+        top: 15px;
+        width: 10%;
+        height: 10%;
+        cursor: pointer;
+      }
+
+      &_fav_btn_on {
+        color: $tertiary-color;
+        width: 20px;
+        height: 20px;
+      }
+
+      &_fav_btn_off {
+        color: $tertiary-color;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .videocard_veil {
+    width: 320px;
+    height: 220px;
+    font-family: $font-text;
+
+    z-index: 0;
+    position: relative;
+
+    &_video {
+      width: 320px;
+      height: 220px;
+      overflow: hidden;
+      border-radius: 15px;
+      opacity: 60%;
+    }
+
+    &_lock {
+      position: absolute;
+      color: $primary-color;
+      top: 20%;
+      right: 38%;
+      z-index: 2;
+      width: 80px;
+      height: 80px;
+    }
+
+    &_video_description {
+      position: relative;
+      bottom: 47px;
+      padding: 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      background-color: $sixth-color;
+      border-radius: 0 0 15px 15px;
+    }
+  }
+}

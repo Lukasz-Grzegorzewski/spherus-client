@@ -1,0 +1,243 @@
+//--------------App LAZY-----------------
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .body {
+    flex-grow: 1;
+  }
+
+  .loader-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    background: $dt-background;
+    z-index: 1;
+
+    p {
+      margin-top: 1rem;
+      font-size: 3rem;
+      font-family: $font-display;
+      font-weight: 700;
+      color: $tertiary-color;
+    }
+  }
+
+  .spinner {
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: $tertiary-color transparent $tertiary-color transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.2s linear infinite;
+  }
+
+  @keyframes spin-anim {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// ------------------------------------
+//----------DARK & LIGHT THEMES--------
+//-------------------------------------
+
+//----------DARK-----------------------
+//-------------------------------------
+.App.dark-theme {
+  width: 100%;
+  color: $primary-color;
+  background: $dt-background;
+
+  .footer {
+    background-color: $dt-navbar-footer-color;
+  }
+
+  button {
+    color: $primary-color;
+  }
+}
+
+//----------LIGHT-----------------------
+//--------------------------------------
+.App.light-theme {
+  width: 100%;
+  color: $secondary-color;
+  background: $lt-background;
+
+  //--------Lazy -------------
+
+  .loader-container {
+    background: $primary-color;
+
+    p {
+      color: $secondary-color;
+    }
+  }
+
+  //------- Home Page---------
+
+  // Navbar
+  .btn-img-avatar {
+    box-shadow: 0 0 5px 1px $secondary-color;
+    border-radius: 20px;
+  }
+
+  // Video Card
+  .main {
+    .videocard_video {
+      // box-shadow: 0 0 5px 1px $secondary-color;
+
+      &_description {
+        color: $primary-color;
+      }
+    }
+  }
+
+  // Section
+  .section_container {
+    box-shadow: 4px 4px 20px rgba(56, 78, 119, 0.2);
+    padding: 1%;
+    border-radius: 20px;
+    background-color: white;
+  }
+
+  // Advert
+  .pub {
+    margin-bottom: 2%;
+
+    &_box {
+      margin-bottom: initial;
+    }
+  }
+
+  // Footer
+  .footer {
+    background-color: $lt-navbar-footer-color;
+
+    &_link_url_txt {
+      color: $primary-color;
+    }
+
+    &_social_icon {
+      color: $primary-color;
+    }
+  }
+
+  // Formulaire
+
+  .form {
+    box-shadow: 0 0 5px 1px $secondary-color;
+  }
+
+  //------- Admin Page---------
+
+  // Admin Advert
+  .adminad {
+    background-color: $fourth-color;
+    box-shadow: 0 0 5px 1px $secondary-color;
+  }
+
+  // Admin Video
+  .adminvideo_container {
+    background-color: $fourth-color;
+    box-shadow: 0 0 5px 1px $secondary-color;
+
+    .adminvideo_file_input {
+      background-color: $primary-color;
+      color: $secondary-color;
+    }
+  }
+
+  //Admin category
+
+  .select-category {
+    background-color: $fourth-color;
+    box-shadow: 0 0 5px 1px $secondary-color;
+  }
+
+  // Admin Hero Slider & Fixtures
+  .adminheroslider,
+  .fixtures-slider {
+    background-color: $fourth-color;
+    box-shadow: 0 0 5px 1px $secondary-color;
+  }
+
+  .addhero_video_name_select,
+  .addhero_cat_name_select,
+  .choicehero_cat_name_select,
+  .choicehero_video_name_select {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+
+  // Admin Home Page
+  .adminhomepage {
+    background-color: $fourth-color;
+    box-shadow: 0 0 5px 1px $secondary-color;
+
+    .adminHomeCurrentComp_drag_box {
+      box-shadow: 0 0 5px 1px $secondary-color;
+      background-color: $sixth-color;
+    }
+
+    .set_adminHomeDragInComp_box {
+      box-shadow: 0 0 5px 1px $primary-color;
+
+      &_div {
+        box-shadow: 0 0 5px 1px $secondary-color;
+        background-color: $sixth-color;
+
+        &_title {
+          color: $tertiary-color;
+        }
+
+        &_btn {
+          background: $primary-color;
+
+          &:after {
+            background: $tertiary-color;
+          }
+        }
+      }
+    }
+  }
+
+  // Admin Users
+  .admin-users-container {
+    background-color: $fourth-color;
+    box-shadow: 0 0 5px 1px $secondary-color;
+
+    .label-users-admins {
+      a {
+        color: $primary-color;
+      }
+    }
+
+    .input-search {
+      background-color: $primary-color;
+
+      &::placeholder {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  button {
+    color: $secondary-color;
+  }
+
+  a {
+    color: $secondary-color;
+  }
+}

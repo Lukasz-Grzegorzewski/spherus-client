@@ -1,0 +1,61 @@
+.open-add-box {
+  max-width: 22rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  & .add-form {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  & p {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .open-add-box {
+    max-width: 36rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+
+    & input {
+      width: 169.21px;
+      height: 81, 2;
+    }
+
+    & .add-form {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      height: 8rem;
+      max-width: 100%;
+      gap: 0 1rem;
+
+      & .submitBtn {
+        margin: 0;
+      }
+
+      & input {
+        margin-left: 20px;
+        border-radius: 20px;
+        height: 25px;
+      }
+    }
+
+    & .error-message-add {
+      display: flex;
+
+      & p {
+        width: 42rem;
+        margin-left: 8.5rem;
+      }
+    }
+  }
+}

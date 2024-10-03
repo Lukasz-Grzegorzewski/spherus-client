@@ -1,0 +1,102 @@
+.register-popup {
+  animation: soft-fade-in 0.7s ease-out;
+  position: absolute;
+  top: 20%;
+
+  .register_card {
+    position: relative;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 65vw;
+    height: auto;
+    left: 15vw;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3%;
+    margin: 2%;
+
+    .close_btn {
+      color: $tertiary-color;
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      left: 89%;
+      top: 1%;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      padding-top: 24px;
+      color: $secondary-color;
+      font-family: $font-text;
+    }
+
+    p {
+      text-align: center;
+      font-size: 18px;
+      padding-top: 24px;
+      color: $secondary-color;
+      font-family: $font-text;
+      width: 70%;
+    }
+
+    .howToSetFav {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin: 15px;
+      gap: 2%;
+    }
+
+    .arrow {
+      width: 25px;
+      height: 25px;
+      color: $tertiary-color;
+    }
+
+    img {
+      width: 300px;
+      height: 200px;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .register-popup {
+    top: 15vh;
+
+    .login-card {
+      width: 60vw;
+      height: auto;
+      left: 25vw;
+    }
+
+    .close_btn {
+      left: 91%;
+      top: 0.5%;
+      width: 20px;
+      height: 20px;
+    }
+
+    .howToSetFav {
+      flex-direction: column;
+
+      img {
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+
+    .arrow {
+      transform: rotate(90deg);
+      margin: 5px;
+    }
+  }
+}

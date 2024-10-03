@@ -1,0 +1,39 @@
+@import "./navbarMobile/navbarMobile.scss";
+@import "./navbarDesktop/navbarDesktop.scss";
+@import "./menus/menuBurger.scss";
+@import "../variables.scss";
+
+.navbar {
+  position: relative;
+  z-index: 1001;
+  display: flex;
+  justify-content: flex-end;
+
+  .logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+
+    img.logo {
+      width: 50px;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .navbar {
+    height: 50px;
+
+    .logo-container {
+      position: absolute;
+      left: 70px;
+      top: 5px;
+      z-index: 3;
+
+      img.logo {
+        width: 130px;
+      }
+    }
+  }
+}

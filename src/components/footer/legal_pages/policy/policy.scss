@@ -1,0 +1,19 @@
+.policy {
+  padding-top: 15%;
+  margin-left: 2%;
+  font-family: $font-text;
+  margin-bottom: 1%;
+
+  strong {
+    font-family: $font-display;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: $tertiary-color;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .policy {
+    padding-top: 5%;
+  }
+}

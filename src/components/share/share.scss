@@ -1,0 +1,9 @@
+.share_container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  &_text {
+    font-family: $font-text;
+  }
+}

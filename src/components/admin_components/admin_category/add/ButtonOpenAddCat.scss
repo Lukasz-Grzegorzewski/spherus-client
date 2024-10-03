@@ -1,0 +1,30 @@
+.button_open_add_cat {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .button_open_add_cat {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 0.5rem;
+
+    & .open {
+      width: 150px;
+      font-size: 12px;
+      margin: 2rem;
+      z-index: 0;
+    }
+
+    & .close {
+      width: 12px;
+      font-size: 12px;
+      z-index: 0;
+      max-height: 16px;
+      margin-bottom: 2rem;
+    }
+  }
+}
