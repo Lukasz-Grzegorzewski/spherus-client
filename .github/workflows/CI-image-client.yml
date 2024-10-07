@@ -25,6 +25,9 @@ jobs:
         run: |
           VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com npm run build
 
+      - name: Debug Password
+        run: echo "${{ secrets.VPS_SSH_PASSWORD }}"
+
       - name: Test SSH Connectivity
         run: ssh -p ${{ secrets.VPS_PORT }} -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
 
