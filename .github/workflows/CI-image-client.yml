@@ -23,7 +23,7 @@ jobs:
 
       - name: Build the Vite project
         run: |
-          VITE_URL_SPHERUS_API=https://spherus.luc-dev.com npm run build
+          VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com npm run build
 
 
       - name: Deploy to VPS via SSH
@@ -31,7 +31,7 @@ jobs:
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
+          password: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
           script: |
             VERSION=${{ github.ref_name }}
