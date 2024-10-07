@@ -26,7 +26,7 @@ jobs:
           VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com npm run build
 
       - name: Test SSH Connectivity
-        run: ssh -p ${{ secrets.VPS_PORT }} -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
+        run: ssh -p ${{ secrets.VPS_PORT }} -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
 
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@master
