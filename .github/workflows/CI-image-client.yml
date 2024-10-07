@@ -1,0 +1,52 @@
+name: spherus-client-CI
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:      
+  dockerProd:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build the Vite project
+        run: |
+          VITE_URL_SPHERUS_API=https://spherus.luc-dev.com npm run build
+
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            VERSION=${{ github.ref_name }}
+            DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
+            
+            # Create the versioned directory
+            mkdir -p $DEPLOY_PATH/$VERSION
+            
+            # Transfer the built dist files to the versioned directory
+            # scp -r dist/* ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:$DEPLOY_PATH/$VERSION
+            rsync -avz -e "ssh -p ${{ secrets.VPS_PORT }}" dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/$DEPLOY_PATH/$VERSION
+            
+            # Update NGINX config to point to the new version
+            sed -i "s|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|" /home/lukasz/apps/spherus/staging/docker-compose.prod.yml
+
+            # Restart NGINX to apply the new configuration
+            docker compose -f docker-compose.prod.yml down &&
+            docker compose -f docker-compose.prod.yml up --build -d
