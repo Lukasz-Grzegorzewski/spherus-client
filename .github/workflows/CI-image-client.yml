@@ -36,17 +36,27 @@ jobs:
           script: |
             VERSION=${{ github.ref_name }}
             DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
+
+            echo "Deploying version: $VERSION"
+            echo "Deployment path: $DEPLOY_PATH/$VERSION"
             
             # Create the versioned directory
-            mkdir -p $DEPLOY_PATH/$VERSION
-            
+            mkdir -p $DEPLOY_PATH/$VERSION || { echo "Failed to create directory"; exit 1; }
+
+            # Check the directory exists
+            ls -la $DEPLOY_PATH/$VERSION || { echo "Directory does not exist"; exit 1; }
+
             # Transfer the built dist files to the versioned directory
             # scp -r dist/* ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:$DEPLOY_PATH/$VERSION
-            rsync -avz -e "ssh -p ${{ secrets.VPS_PORT }}" dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/$DEPLOY_PATH/$VERSION
+            rsync -avz -e "ssh -p ${{ secrets.VPS_PORT }}" dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/$DEPLOY_PATH/$VERSION || { echo "Failed to transfer files"; exit 1; }
             
+            echo "Update client version($VERSION) completed."
+
             # Update NGINX config to point to the new version
-            sed -i "s|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|" /home/lukasz/apps/spherus/staging/docker-compose.prod.yml
+            sed -i "s|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|" /home/lukasz/apps/spherus/staging/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
 
             # Restart NGINX to apply the new configuration
             docker compose -f docker-compose.prod.yml down &&
             docker compose -f docker-compose.prod.yml up --build -d
+
+            echo "Deployment completed."
