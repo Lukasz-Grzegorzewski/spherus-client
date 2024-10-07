@@ -25,6 +25,8 @@ jobs:
         run: |
           VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com npm run build
 
+      - name: Test SSH Connectivity
+        run: ssh -p ${{ secrets.VPS_PORT }} -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
 
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@master
@@ -49,7 +51,7 @@ jobs:
             # Transfer the built dist files to the versioned directory
             # scp -r dist/* ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:$DEPLOY_PATH/$VERSION/
             # rsync -avz -e "ssh -p ${{ secrets.VPS_PORT }} -o StrictHostKeyChecking=no" dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
-            rsync -avz -e "ssh -p ${{ secrets.VPS_PORT }} -vvv -o StrictHostKeyChecking=no" dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
+            rsync -avz -e "ssh -p ${{ secrets.VPS_PORT }} -vvv -o PreferredAuthentications=password -o StrictHostKeyChecking=no" dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
             echo "Update client version($VERSION) completed."
 
             # Update NGINX config to point to the new version
