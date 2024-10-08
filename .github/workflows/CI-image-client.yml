@@ -51,7 +51,10 @@ jobs:
             mkdir -p $DEPLOY_PATH/$VERSION || { echo "Failed to create directory"; exit 1; }
 
             # Use SCP to copy files to the server
-            scp -P ${{ secrets.PORT }} -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
+            # scp -P ${{ secrets.PORT }} -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
+
+            # Use sshpass to copy files via SCP
+            sshpass -p "${{ secrets.PASSWORD }}" scp -P ${{ secrets.PORT }} -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
 
             echo "Update client version($VERSION) completed."
 
