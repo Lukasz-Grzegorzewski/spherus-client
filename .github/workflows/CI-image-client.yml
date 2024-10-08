@@ -50,7 +50,7 @@ jobs:
             DEPLOY_PATH="CLIENT_PATH/$VERSION"
 
             # Update docker-compose.staging.yml to point to the new volume for nginx
-            sed -i "s|$CLIENT_PATH/v[^/]*|$DEPLOY_PATH|" STAGING_PATH/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
+            sed -i "s|$CLIENT_PATH/v[^/]*|$DEPLOY_PATH|" $STAGING_PATH/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
             
             # Restart NGINX to apply the new configuration
             cd $STAGING_PATH
