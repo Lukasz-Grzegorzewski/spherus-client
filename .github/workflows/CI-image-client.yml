@@ -50,64 +50,11 @@ jobs:
             DEPLOY_PATH="$CLIENT_PATH/$VERSION"
 
             # Update docker-compose.staging.yml to point to the new volume for nginx
-            sed -i "s|$CLIENT_PATH/v[^/]*|:$DEPLOY_PATH|" $STAGING_PATH/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
+            sed -i "s|$CLIENT_PATH/v[^/]*|$DEPLOY_PATH:|" $STAGING_PATH/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
             
             # Restart NGINX to apply the new configuration
             cd $STAGING_PATH
-            docker compose -f docker-compose.staging.yml down &&
+            docker compose -f docker-compose.staging.yml down --volumes &&
             docker compose -f docker-compose.staging.yml up --build -d
 
             echo "Deployment completed."
-
-      # - name: Install sshpass
-      #   run: sudo apt-get install -y sshpass
-        
-      # - name: Deploy to VPS via SCP using sshpass
-      #   run: |
-      #     VERSION=${{ github.ref_name }}
-      #     DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
-      #     echo "Deploying version: $VERSION"
-      #     echo "Deployment path: $DEPLOY_PATH/$VERSION"
-          
-      #     # Create the versioned directory on the server
-      #     sshpass -p "${{ secrets.PASSWORD }}" ssh -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "mkdir -p $DEPLOY_PATH/$VERSION"
-
-      #     # Use sshpass to copy the built files via SCP
-      #     sshpass -p "${{ secrets.PASSWORD }}" scp -P ${{ secrets.PORT }} -o StrictHostKeyChecking=no -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/
-
-      # - name: Update NGINX config and restart service
-      #   run: |
-      #     VERSION=${{ github.ref_name }}
-      #     DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
-
-      #     # Update docker-compose.staging.yml to point to the new version
-      #     sshpass -p "${{ secrets.PASSWORD }}" ssh -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "
-      #       sed -i 's|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|' /home/lukasz/apps/spherus/staging/docker-compose.staging.yml &&
-      #       docker compose -f /home/lukasz/apps/spherus/staging/docker-compose.staging.yml down &&
-      #       docker compose -f /home/lukasz/apps/spherus/staging/docker-compose.staging.yml up --build -d"
-
-
-      # - name: Test SSH Connection
-      #   run: sshpass -p "${{ secrets.VPS_SSH_PASSWORD }}" ssh -p ${{ secrets.VPS_PORT }} -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
-
-      # - name: Test SSH Connectivity
-      #   run: ssh -p ${{ secrets.VPS_PORT }} -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
-
-
-
-      #       mv /home/lukasz/apps/spherus/staging/client/dist /home/lukasz/apps/spherus/staging/client/${{}}
-      #       echo "Deploying version: $VERSION"
-      #       echo "Deployment path: $DEPLOY_PATH/$VERSION"
-            
-      #       # Create the versioned directory
-      #       mkdir -p $DEPLOY_PATH/$VERSION || { echo "Failed to create directory"; exit 1; }
-
-      #       # Use SCP to copy files to the server
-      #       # scp -P ${{ secrets.PORT }} -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
-
-      #       # Use sshpass to copy files via SCP
-      #       sshpass -p "${{ secrets.PASSWORD }}" scp -P ${{ secrets.PORT }} -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
-
-      #       echo "Update client version($VERSION) completed."
-
-
