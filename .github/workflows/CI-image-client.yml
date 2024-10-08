@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "dist/*"
+          source: "dist/."
           target: /home/lukasz/apps/spherus/staging/client/${{ github.ref_name }}/
 
 
