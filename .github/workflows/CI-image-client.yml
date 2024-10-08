@@ -42,31 +42,24 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            echo "CONNECTED YEAH !!"
-            whoami
-            # |
-            # VERSION=${{ github.ref_name }}
-            # DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
-            # echo "Deploying version: $VERSION"
-            # echo "Deployment path: $DEPLOY_PATH/$VERSION"
+            VERSION=${{ github.ref_name }}
+            DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
+            echo "Deploying version: $VERSION"
+            echo "Deployment path: $DEPLOY_PATH/$VERSION"
             
-            # # Create the versioned directory
-            # mkdir -p $DEPLOY_PATH/$VERSION || { echo "Failed to create directory"; exit 1; }
+            # Create the versioned directory
+            mkdir -p $DEPLOY_PATH/$VERSION || { echo "Failed to create directory"; exit 1; }
 
-            # # Check the directory exists
-            # ls -la $DEPLOY_PATH/$VERSION || { echo "Directory does not exist"; exit 1; }
+            # Use SCP to copy files to the server
+            scp -P ${{ secrets.PORT }} -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
 
-            # # Transfer the built dist files to the versioned directory
-            # # scp -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/
-            # # rsync -avz -e "ssh -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no" dist/ ${{ secrets.USER }}@${{ secrets.HOST }}:/$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
-            # rsync -avz -e "ssh -p ${{ secrets.PORT }} -vvv -o PreferredAuthentications=password -o StrictHostKeyChecking=no" dist/ ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/ || { echo "Failed to transfer files"; exit 1; }
-            # echo "Update client version($VERSION) completed."
+            echo "Update client version($VERSION) completed."
 
-            # # Update NGINX config to point to the new version
-            # sed -i "s|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|" /home/lukasz/apps/spherus/staging/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
+            # Update docker-compose.staging.yml to point to the new volume for nginx
+            sed -i "s|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|" /home/lukasz/apps/spherus/staging/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
 
-            # # Restart NGINX to apply the new configuration
-            # docker compose -f docker-compose.prod.yml down &&
-            # docker compose -f docker-compose.prod.yml up --build -d
+            # Restart NGINX to apply the new configuration
+            docker compose -f docker-compose.prod.yml down &&
+            docker compose -f docker-compose.prod.yml up --build -d
 
-            # echo "Deployment completed."
+            echo "Deployment completed."
