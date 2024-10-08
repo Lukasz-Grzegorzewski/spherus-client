@@ -45,14 +45,17 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             VERSION=${{ github.ref_name }}
-            DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
+            STAGING_PATH="/home/lukasz/apps/spherus/staging"
+            CLIENT_PATH="$STAGING_PATH/client"
+            DEPLOY_PATH="CLIENT_PATH/$VERSION"
 
             # Update docker-compose.staging.yml to point to the new volume for nginx
-            sed -i "s|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|" /home/lukasz/apps/spherus/staging/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
+            sed -i "s|$CLIENT_PATH/v[^/]*|$DEPLOY_PATH|" STAGING_PATH/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
             
             # Restart NGINX to apply the new configuration
-            docker compose -f docker-compose.prod.yml down &&
-            docker compose -f docker-compose.prod.yml up --build -d
+            cd $STAGING_PATH
+            docker compose -f docker-compose.staging.yml down &&
+            docker compose -f docker-compose.staging.yml up --build -d
 
             echo "Deployment completed."
 
