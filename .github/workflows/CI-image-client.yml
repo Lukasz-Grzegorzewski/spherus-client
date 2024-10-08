@@ -78,7 +78,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            echo ls -la
+            ls -la
       #       VERSION=${{ github.ref_name }}
       #       DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
       #       echo "Deploying version: $VERSION"
