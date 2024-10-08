@@ -25,32 +25,43 @@ jobs:
         run: |
           VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com npm run build
 
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
+      # - name: copy file via ssh password
+      #   uses: appleboy/scp-action@v0.1.7
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.PASSWORD }}
+      #     port: ${{ secrets.PORT }}
+      #     source: "tests/a.txt,tests/b.txt"
+      #     target: your_server_target_folder_path
+
+
+      # - name: Install sshpass
+      #   run: sudo apt-get install -y sshpass
         
-      - name: Deploy to VPS via SCP using sshpass
-        run: |
-          VERSION=${{ github.ref_name }}
-          DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
-          echo "Deploying version: $VERSION"
-          echo "Deployment path: $DEPLOY_PATH/$VERSION"
+      # - name: Deploy to VPS via SCP using sshpass
+      #   run: |
+      #     VERSION=${{ github.ref_name }}
+      #     DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
+      #     echo "Deploying version: $VERSION"
+      #     echo "Deployment path: $DEPLOY_PATH/$VERSION"
           
-          # Create the versioned directory on the server
-          sshpass -p "${{ secrets.PASSWORD }}" ssh -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "mkdir -p $DEPLOY_PATH/$VERSION"
+      #     # Create the versioned directory on the server
+      #     sshpass -p "${{ secrets.PASSWORD }}" ssh -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "mkdir -p $DEPLOY_PATH/$VERSION"
 
-          # Use sshpass to copy the built files via SCP
-          sshpass -p "${{ secrets.PASSWORD }}" scp -P ${{ secrets.PORT }} -o StrictHostKeyChecking=no -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/
+      #     # Use sshpass to copy the built files via SCP
+      #     sshpass -p "${{ secrets.PASSWORD }}" scp -P ${{ secrets.PORT }} -o StrictHostKeyChecking=no -r dist/* ${{ secrets.USER }}@${{ secrets.HOST }}:$DEPLOY_PATH/$VERSION/
 
-      - name: Update NGINX config and restart service
-        run: |
-          VERSION=${{ github.ref_name }}
-          DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
+      # - name: Update NGINX config and restart service
+      #   run: |
+      #     VERSION=${{ github.ref_name }}
+      #     DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
 
-          # Update docker-compose.staging.yml to point to the new version
-          sshpass -p "${{ secrets.PASSWORD }}" ssh -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "
-            sed -i 's|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|' /home/lukasz/apps/spherus/staging/docker-compose.staging.yml &&
-            docker compose -f /home/lukasz/apps/spherus/staging/docker-compose.staging.yml down &&
-            docker compose -f /home/lukasz/apps/spherus/staging/docker-compose.staging.yml up --build -d"
+      #     # Update docker-compose.staging.yml to point to the new version
+      #     sshpass -p "${{ secrets.PASSWORD }}" ssh -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "
+      #       sed -i 's|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|' /home/lukasz/apps/spherus/staging/docker-compose.staging.yml &&
+      #       docker compose -f /home/lukasz/apps/spherus/staging/docker-compose.staging.yml down &&
+      #       docker compose -f /home/lukasz/apps/spherus/staging/docker-compose.staging.yml up --build -d"
 
 
       # - name: Test SSH Connection
@@ -59,14 +70,15 @@ jobs:
       # - name: Test SSH Connectivity
       #   run: ssh -p ${{ secrets.VPS_PORT }} -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
 
-      # - name: executing remote ssh commands using password
-      #   uses: appleboy/ssh-action@v1.1.0
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     password: ${{ secrets.PASSWORD }}
-      #     port: ${{ secrets.PORT }}
-      #     script: |
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            echo ls -la
       #       VERSION=${{ github.ref_name }}
       #       DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
       #       echo "Deploying version: $VERSION"
