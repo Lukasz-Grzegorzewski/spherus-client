@@ -27,6 +27,8 @@ function Heroslider() {
       axios
         .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/hero_slider`)
         .then((res) => {
+          console.log("Data in heroSlider", typeof res.data, res.data);
+          
           setSliderInfo(res.data);
         });
     };

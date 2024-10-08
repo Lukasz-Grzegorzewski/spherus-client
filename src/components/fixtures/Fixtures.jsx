@@ -38,6 +38,7 @@ function Fixtures() {
       axios
         .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/fixtures`)
         .then((res) => {
+          console.log("Data in Fixtures : getInfos", typeof res.data, res.data);
           setFixtures(res.data);
         })
         .catch((err) => console.error(err));
@@ -46,7 +47,10 @@ function Fixtures() {
     const getFixturesName = () => {
       axios
         .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/display_fixtures`)
-        .then((res) => setDisplayFixtures(res.data))
+        .then((res) => {
+          console.log("Data in heroSlider : getFixturesName ", typeof res.data, res.data);
+          setDisplayFixtures(res.data)
+        })
         .catch((err) => console.error(err));
     };
     getInfos();
