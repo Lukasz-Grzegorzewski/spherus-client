@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: "dist/*"
-          target: /home/lukasz/apps/spherus/
+          target: /home/lukasz/apps/spherus/staging/client/${{ github.ref_name }}/
 
 
       # - name: Install sshpass
@@ -78,7 +78,7 @@ jobs:
       #     password: ${{ secrets.PASSWORD }}
       #     port: ${{ secrets.PORT }}
       #     script: |
-      #       ls -la ./apps
+      #       mv /home/lukasz/apps/spherus/staging/client/dist /home/lukasz/apps/spherus/staging/client/${{}}
       #       VERSION=${{ github.ref_name }}
       #       DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
       #       echo "Deploying version: $VERSION"
