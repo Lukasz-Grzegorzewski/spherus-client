@@ -25,15 +25,15 @@ jobs:
         run: |
           VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com npm run build
 
-      # - name: copy file via ssh password
-      #   uses: appleboy/scp-action@v0.1.7
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     password: ${{ secrets.PASSWORD }}
-      #     port: ${{ secrets.PORT }}
-      #     source: "tests/a.txt,tests/b.txt"
-      #     target: your_server_target_folder_path
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "dist/*"
+          target: /home/lukasz/apps/spherus/
 
 
       # - name: Install sshpass
@@ -70,15 +70,15 @@ jobs:
       # - name: Test SSH Connectivity
       #   run: ssh -p ${{ secrets.VPS_PORT }} -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
 
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v1.1.0
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            ls -la ./apps
+      # - name: executing remote ssh commands using password
+      #   uses: appleboy/ssh-action@v1.1.0
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.PASSWORD }}
+      #     port: ${{ secrets.PORT }}
+      #     script: |
+      #       ls -la ./apps
       #       VERSION=${{ github.ref_name }}
       #       DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
       #       echo "Deploying version: $VERSION"
