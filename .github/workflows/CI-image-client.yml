@@ -25,7 +25,7 @@ jobs:
         run: |
           VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com npm run build
 
-      - name: copy file via ssh password
+      - name: Copy dist build files to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
@@ -36,6 +36,25 @@ jobs:
           target: /home/lukasz/apps/spherus/staging/client/${{ github.ref_name }}/
           strip_components: 1
 
+      - name: Update NGINX volume inside docker-compose.stagig.yml 
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            VERSION=${{ github.ref_name }}
+            DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
+
+            # Update docker-compose.staging.yml to point to the new volume for nginx
+            sed -i "s|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|" /home/lukasz/apps/spherus/staging/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
+            
+            # Restart NGINX to apply the new configuration
+            docker compose -f docker-compose.prod.yml down &&
+            docker compose -f docker-compose.prod.yml up --build -d
+
+            echo "Deployment completed."
 
       # - name: Install sshpass
       #   run: sudo apt-get install -y sshpass
@@ -71,25 +90,7 @@ jobs:
       # - name: Test SSH Connectivity
       #   run: ssh -p ${{ secrets.VPS_PORT }} -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
 
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v1.1.0
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            VERSION=${{ github.ref_name }}
-            DEPLOY_PATH="/home/lukasz/apps/spherus/staging/client"
 
-            # Update docker-compose.staging.yml to point to the new volume for nginx
-            sed -i "s|$DEPLOY_PATH/v[^/]*|$DEPLOY_PATH/$VERSION|" /home/lukasz/apps/spherus/staging/docker-compose.staging.yml || { echo "Failed to change docker-compose.staging.yml"; exit 1; }
-            
-            # Restart NGINX to apply the new configuration
-            docker compose -f docker-compose.prod.yml down &&
-            docker compose -f docker-compose.prod.yml up --build -d
-
-            echo "Deployment completed."
 
       #       mv /home/lukasz/apps/spherus/staging/client/dist /home/lukasz/apps/spherus/staging/client/${{}}
       #       echo "Deploying version: $VERSION"
