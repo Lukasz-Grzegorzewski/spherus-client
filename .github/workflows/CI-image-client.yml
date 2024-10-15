@@ -23,7 +23,7 @@ jobs:
 
       - name: Build the Vite project
         run: |
-          VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com npm run build
+          VITE_URL_SPHERUS_API=https://staging.spherus.luc-dev.com/api npm run build
 
       - name: Copy dist build files to VPS
         uses: appleboy/scp-action@v0.1.7
