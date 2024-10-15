@@ -41,6 +41,7 @@ function Navbar({ handlePopUpLogIn, handleRegisterPopUp }) {
           />
         </NavLink>
       </div>
+      T
       {!size ? (
         <NavbarMobile
           handlePopUpLogIn={() => handlePopUpLogIn()}
