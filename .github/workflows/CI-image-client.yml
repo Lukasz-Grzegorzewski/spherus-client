@@ -45,7 +45,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             VERSION=${{ github.ref_name }}
-            STAGING_PATH="/home/lukasz/apps/spherus/staging"
+            STAGING_PATH="/home/lukasz/apps/spherus/spherus-staging"
             CLIENT_PATH="$STAGING_PATH/client"
             DEPLOY_PATH="$CLIENT_PATH/$VERSION"
 
@@ -54,7 +54,7 @@ jobs:
             
             # Restart NGINX to apply the new configuration
             cd $STAGING_PATH
-            docker compose -f docker-compose.staging.yml down --volumes &&
-            docker compose -f docker-compose.staging.yml up --build -d
+            docker compose -f docker-compose.spherus_staging.yml down &&
+            docker compose -f docker-compose.spherus_staging.yml up -d
 
             echo "Deployment completed."
