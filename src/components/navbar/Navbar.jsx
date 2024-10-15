@@ -33,15 +33,14 @@ function Navbar({ handlePopUpLogIn, handleRegisterPopUp }) {
             src={
               size
                 ? themeToggle
-                  ? 'images/logo_dark.png'
-                  : 'images/logo_light.png'
-                : 'images/logo_mini.png'
+                  ? `${import.meta.env.VITE_URL_SPHERUS_API}/assets/images/front/logo_spherus_long_dark.png`
+                  : `${import.meta.env.VITE_URL_SPHERUS_API}/assets/images/front/logo_spherus_long_light.png`
+                : `${import.meta.env.VITE_URL_SPHERUS_API}/assets/images/front/logo_spherus_short.png`
             }
             alt='logo'
           />
         </NavLink>
       </div>
-      T
       {!size ? (
         <NavbarMobile
           handlePopUpLogIn={() => handlePopUpLogIn()}
