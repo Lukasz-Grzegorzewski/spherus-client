@@ -41,7 +41,7 @@ function Section({ type, idLink, id }) {
         .get(
           `${
             import.meta.env.VITE_URL_SPHERUS_API
-          }/api/home/carousel/${isSection}`
+          }/home/carousel/${isSection}`
         )
         .then((res) => {
           setCategory(res.data);
@@ -51,7 +51,7 @@ function Section({ type, idLink, id }) {
         .get(
           `${
             import.meta.env.VITE_URL_SPHERUS_API
-          }/api/categories/${idLinkCategorySection}`
+          }/categories/${idLinkCategorySection}`
         )
         .then((res) => {
           setCategoryName(res.data);

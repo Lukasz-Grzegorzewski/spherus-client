@@ -24,7 +24,7 @@ function VideoCard({ id, url, title, display }) {
     const getFavorite = async (tokenContext) => {
       try {
         const favorites = await axios.get(
-          `${import.meta.env.VITE_URL_SPHERUS_API}/api/favorites/${
+          `${import.meta.env.VITE_URL_SPHERUS_API}/favorites/${
             tokenContext.id
           }`
         );
@@ -43,7 +43,7 @@ function VideoCard({ id, url, title, display }) {
   const setFavorite = () => {
     if (favBtn === false) {
       axios
-        .post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/favorites`, {
+        .post(`${import.meta.env.VITE_URL_SPHERUS_API}/favorites`, {
           userId: token.id,
           videoFavId: id,
         })
@@ -55,7 +55,7 @@ function VideoCard({ id, url, title, display }) {
         });
     } else if (favBtn === true) {
       axios
-        .delete(`${import.meta.env.VITE_URL_SPHERUS_API}/api/favorites/${id}`)
+        .delete(`${import.meta.env.VITE_URL_SPHERUS_API}/favorites/${id}`)
         .then(() => {
           setFavBtn(false);
         })

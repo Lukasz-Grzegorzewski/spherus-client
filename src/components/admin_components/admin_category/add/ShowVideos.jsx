@@ -17,7 +17,7 @@ function ShowVideos({
 
 	const getVideos = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/videos`)
 			.then((res) => {
 				setGetVideosForAdd(res.data);
 			})
@@ -47,7 +47,7 @@ function ShowVideos({
 		if (pushArray.length > 0) {
 			pushArray.forEach((elem) => {
 				axios
-					.post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/category/video`, {
+					.post(`${import.meta.env.VITE_URL_SPHERUS_API}/category/video`, {
 						videoId: elem,
 						categoryId: catId,
 					})

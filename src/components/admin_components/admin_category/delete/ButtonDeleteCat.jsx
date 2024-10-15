@@ -12,7 +12,7 @@ function ButtonDeleteCat({ catId, getCategories, setCatId }) {
 	const [errorMessageDelete, setErrorMessageDelete] = useState(false);
 	function deleteCategory() {
 		axios
-			.delete(`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories/${catId}`)
+			.delete(`${import.meta.env.VITE_URL_SPHERUS_API}/categories/${catId}`)
 			.then(() => {
 				getCategories();
 				setOpenDeletePopUp(false);

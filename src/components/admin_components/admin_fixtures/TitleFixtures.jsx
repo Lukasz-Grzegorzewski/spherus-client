@@ -8,14 +8,14 @@ function TitleFixtures() {
 
 	const getFixturesName = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/display_fixtures`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/display_fixtures`)
 			.then((res) => setTitleFix(res.data))
 			.catch((err) => console.error(err));
 	}, []);
 
 	const handleUpdateTitle = () => {
 		axios
-			.patch(`${import.meta.env.VITE_URL_SPHERUS_API}/api/display_fixtures`, {
+			.patch(`${import.meta.env.VITE_URL_SPHERUS_API}/display_fixtures`, {
 				fixName,
 			})
 			.then(() => getFixturesName());

@@ -17,7 +17,7 @@ function ActuallyHeroSlider({ id, idVid, title, url, getHeroInfo }) {
       .get(
         `${
           import.meta.env.VITE_URL_SPHERUS_API
-        }/api/hero_slider/catname/${idVid}`
+        }/hero_slider/catname/${idVid}`
       )
       .then((res) => {
         setCat(res.data);
@@ -30,7 +30,7 @@ function ActuallyHeroSlider({ id, idVid, title, url, getHeroInfo }) {
 
   const deleteHero = () => {
     axios
-      .delete(`${import.meta.env.VITE_URL_SPHERUS_API}/api/hero_slider/${id}`)
+      .delete(`${import.meta.env.VITE_URL_SPHERUS_API}/hero_slider/${id}`)
       .then((res) => {
         setResponse(res.data);
         getHeroInfo();

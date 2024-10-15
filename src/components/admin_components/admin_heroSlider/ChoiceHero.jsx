@@ -11,7 +11,7 @@ function ChoiceHero({ id, getHeroInfo, choice, setChoice, type }) {
 
   const getCat = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/categories`)
       .then((res) => {
         setCat(res.data);
       });
@@ -22,7 +22,7 @@ function ChoiceHero({ id, getHeroInfo, choice, setChoice, type }) {
       .get(
         `${
           import.meta.env.VITE_URL_SPHERUS_API
-        }/api/videos/categories/${valueCat}`
+        }/videos/categories/${valueCat}`
       )
       .then((res) => {
         setVideos(res.data);
@@ -32,7 +32,7 @@ function ChoiceHero({ id, getHeroInfo, choice, setChoice, type }) {
   const updateHero = () => {
     if (type === 1) {
       axios
-        .put(`${import.meta.env.VITE_URL_SPHERUS_API}/api/hero_slider/${id}`, {
+        .put(`${import.meta.env.VITE_URL_SPHERUS_API}/hero_slider/${id}`, {
           fkVideo: `${valueVideo}`,
         })
         .then((res) => {
@@ -42,7 +42,7 @@ function ChoiceHero({ id, getHeroInfo, choice, setChoice, type }) {
         });
     } else {
       axios
-        .put(`${import.meta.env.VITE_URL_SPHERUS_API}/api/fixtures/${id}`, {
+        .put(`${import.meta.env.VITE_URL_SPHERUS_API}/fixtures/${id}`, {
           fkFixVideoId: `${valueVideo}`,
         })
         .then((res) => {

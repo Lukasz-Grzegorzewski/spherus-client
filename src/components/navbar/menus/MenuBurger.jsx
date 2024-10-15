@@ -32,7 +32,7 @@ function MenuBurger({
   useEffect(() => {
     function getUser(idUserContext) {
       axios
-        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${idUserContext}`)
+        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${idUserContext}`)
         .then((res) => {
           setUser(res.data);
         })

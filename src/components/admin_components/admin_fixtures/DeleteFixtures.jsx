@@ -10,7 +10,7 @@ function DeleteFixtures({ el, getHeroInfo }) {
 
 	const deleteFromFixture = (id) => {
 		axios
-			.delete(`${import.meta.env.VITE_URL_SPHERUS_API}/api/fixtures/${id}`)
+			.delete(`${import.meta.env.VITE_URL_SPHERUS_API}/fixtures/${id}`)
 			.then(() => getHeroInfo())
 			.catch((err) => console.error(err));
 	};

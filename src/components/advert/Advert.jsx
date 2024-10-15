@@ -11,7 +11,7 @@ function Advert({ id }) {
     const getPub = (idAdvert) => {
       axios
         .get(
-          `${import.meta.env.VITE_URL_SPHERUS_API}/api/publicities/${idAdvert}`
+          `${import.meta.env.VITE_URL_SPHERUS_API}/publicities/${idAdvert}`
         )
         .then((res) => {
           setPub(res.data);

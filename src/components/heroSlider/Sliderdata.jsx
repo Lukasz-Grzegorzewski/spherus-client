@@ -17,7 +17,7 @@ function Sliderdata({ id, title, date, url }) {
         .get(
           `${
             import.meta.env.VITE_URL_SPHERUS_API
-          }/api/hero_slider/catname/${idInfos}`
+          }/hero_slider/catname/${idInfos}`
         )
         .then((res) => {
           setCat(res.data);

@@ -36,7 +36,7 @@ function Fixtures() {
 	useEffect(() => {
 		const getInfos = () => {
 			axios
-				.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/fixtures`)
+				.get(`${import.meta.env.VITE_URL_SPHERUS_API}/fixtures`)
 				.then((res) => {
 					if (res.data && Array.isArray(res.data)) setFixtures(res.data);
 				})
@@ -45,7 +45,7 @@ function Fixtures() {
 
 		const getFixturesName = () => {
 			axios
-				.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/display_fixtures`)
+				.get(`${import.meta.env.VITE_URL_SPHERUS_API}/display_fixtures`)
 				.then((res) => {
 					if (
 						res.data &&

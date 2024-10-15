@@ -29,7 +29,7 @@ function AddAdvert({ getPub }) {
 
 	const uploadAdd = (data) => {
 		axios
-			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/publicity`, data)
+			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/publicity`, data)
 			.then(() => {
 				setCheck(true);
 				clearInputs();

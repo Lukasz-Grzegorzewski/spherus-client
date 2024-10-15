@@ -12,7 +12,7 @@ function AdminCategory() {
 
 	const getCategories = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/categories`)
 			.then((res) => {
 				setSelectCategory(res.data);
 			})

@@ -31,7 +31,7 @@ function RegisterForm() {
 
 	const postNewUser = (data) => {
 		axios
-			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users`, data)
+			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/users`, data)
 			.then((res) => {
 				console.warn(res);
 				setIsUserCreated(true);

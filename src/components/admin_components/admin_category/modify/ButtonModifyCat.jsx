@@ -14,7 +14,7 @@ function ButtonModifyCat({ getCategories, catId, catName }) {
 		e.preventDefault();
 		axios
 			.patch(
-				`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories/${catId}/`,
+				`${import.meta.env.VITE_URL_SPHERUS_API}/categories/${catId}/`,
 				{
 					name: categoryModified,
 				},

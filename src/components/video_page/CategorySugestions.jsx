@@ -17,7 +17,7 @@ function CategorySugestions({ arrCatId, vidName }) {
             const response = await axios.get(
               `${
                 import.meta.env.VITE_URL_SPHERUS_API
-              }/api/videos/categories/${catId}`
+              }/videos/categories/${catId}`
             );
             results.push(...response.data);
           } catch (error) {

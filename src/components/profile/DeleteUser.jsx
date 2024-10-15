@@ -10,7 +10,7 @@ function DeleteUser({ id }) {
 
 	function handleDelete() {
 		axios
-			.delete(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${id}`)
+			.delete(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${id}`)
 			.then(() => {
 				console.warn("user deleted successfully");
 				if (isAdmin === 0) navigate("/registration");

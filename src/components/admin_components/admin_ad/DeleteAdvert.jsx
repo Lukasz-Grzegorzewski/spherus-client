@@ -15,7 +15,7 @@ function DeleteAdvert({ pub, getPub }) {
 
 	const getImage = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/publicities/${idPub}`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/publicities/${idPub}`)
 			.then((res) => {
 				setScreen(res.data);
 			});
@@ -28,7 +28,7 @@ function DeleteAdvert({ pub, getPub }) {
 	const deletePub = () => {
 		axios
 			.delete(
-				`${import.meta.env.VITE_URL_SPHERUS_API}/api/publicities/${idPub}`,
+				`${import.meta.env.VITE_URL_SPHERUS_API}/publicities/${idPub}`,
 			)
 			.then(() => {
 				setCheck(true);

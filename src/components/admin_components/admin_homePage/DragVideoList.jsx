@@ -8,7 +8,7 @@ function DragVideoList({ id }) {
 
   const getVideoName = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home/carousel/${id}`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/home/carousel/${id}`)
       .then((res) => {
         setVideoName(res.data);
         setShow(true);

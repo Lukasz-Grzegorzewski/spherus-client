@@ -13,7 +13,7 @@ function MenuSearch({ setIsLoopClicked }) {
   useEffect(() => {
     function getVideos() {
       axios
-        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos`)
+        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/videos`)
         .then((res) => {
           setVideos(res.data);
         })

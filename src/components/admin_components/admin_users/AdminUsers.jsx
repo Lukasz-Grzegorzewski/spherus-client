@@ -28,7 +28,7 @@ function AdminUsers() {
 
   const getUserById = (uId) => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${uId}`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${uId}`)
       .then(async (res) => {
         await setUser(res.data);
       })
@@ -37,7 +37,7 @@ function AdminUsers() {
 
   const getUsers = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/users`)
       .then((res) => {
         if (typeof selected === 'string') setUsers(res.data);
       })

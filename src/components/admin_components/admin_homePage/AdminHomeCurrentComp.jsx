@@ -11,13 +11,13 @@ function AdminHomeCurrentComp({ currentHome, getHome }) {
 
   const getAll = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home/category/name/`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/home/category/name/`)
       .then((res) => {
         setCatName(res.data);
       })
       .catch((err) => console.error(err));
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/publicities/`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/publicities/`)
       .then((res) => {
         setPubName(res.data);
         setShow(true);
@@ -32,7 +32,7 @@ function AdminHomeCurrentComp({ currentHome, getHome }) {
   const updateHome = (items) => {
     items.forEach((element) => {
       axios
-        .put(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home/${element.id}`, {
+        .put(`${import.meta.env.VITE_URL_SPHERUS_API}/home/${element.id}`, {
           position: `${element.position}`,
         })
         .then(() => {
@@ -44,7 +44,7 @@ function AdminHomeCurrentComp({ currentHome, getHome }) {
 
   const deleteComp = (id) => {
     axios
-      .delete(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home/${id}`)
+      .delete(`${import.meta.env.VITE_URL_SPHERUS_API}/home/${id}`)
       .then(() => {
         getHome();
       })

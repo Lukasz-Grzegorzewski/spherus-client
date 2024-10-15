@@ -14,13 +14,13 @@ function RecoveryRequest() {
 		if (userEmail) {
 			axios
 				.get(
-					`${import.meta.env.VITE_URL_SPHERUS_API}/api/email/users/${userEmail}`,
+					`${import.meta.env.VITE_URL_SPHERUS_API}/email/users/${userEmail}`,
 				)
 				.then((result) => {
 					if (result.data.length > 0) {
 						axios
 							.post(
-								`${import.meta.env.VITE_URL_SPHERUS_API}/api/send_recovery_email`,
+								`${import.meta.env.VITE_URL_SPHERUS_API}/send_recovery_email`,
 								{
 									OTP,
 									recipientEmail: userEmail,
@@ -32,7 +32,7 @@ function RecoveryRequest() {
 									state: { userEmail },
 								});
 								axios.patch(
-									`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${
+									`${import.meta.env.VITE_URL_SPHERUS_API}/users/${
 										result.data[0].id
 									}`,
 									{ codeTmp: Number(OTP) },

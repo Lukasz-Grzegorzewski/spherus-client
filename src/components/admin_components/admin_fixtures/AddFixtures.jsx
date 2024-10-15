@@ -8,7 +8,7 @@ function AddFixtures({ getFixtures, getAllCategories, setAdd }) {
 
 	const postFixture = () => {
 		axios
-			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/fixtures`, valueVideo)
+			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/fixtures`, valueVideo)
 			.then(() => {
 				getFixtures();
 				setAdd(false);
@@ -19,7 +19,7 @@ function AddFixtures({ getFixtures, getAllCategories, setAdd }) {
 	function getVideos(id) {
 		axios
 			.get(
-				`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos/categories/${id}`,
+				`${import.meta.env.VITE_URL_SPHERUS_API}/videos/categories/${id}`,
 			)
 			.then((res) => setAllVideos(res.data))
 			.catch((err) => console.error(err));

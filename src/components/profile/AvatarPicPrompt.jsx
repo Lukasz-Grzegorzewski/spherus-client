@@ -66,7 +66,7 @@ function AvatarPicPrompt({ id, setUrl, avatarUrl, setCardToggle, getUser }) {
 		formD.append("file", file);
 
 		axios
-			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${id}`, formD)
+			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${id}`, formD)
 			.then((response) => {
 				setCardToggle(false);
 				getUser();
@@ -81,7 +81,7 @@ function AvatarPicPrompt({ id, setUrl, avatarUrl, setCardToggle, getUser }) {
 	const handleDelete = () => {
 		axios
 			.delete(
-				`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/avatars/${id}`,
+				`${import.meta.env.VITE_URL_SPHERUS_API}/users/avatars/${id}`,
 				data,
 			)
 			.then((response) => {

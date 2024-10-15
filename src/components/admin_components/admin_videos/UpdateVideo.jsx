@@ -28,7 +28,7 @@ function UpdateVideos({ video, getVideo }) {
 
 		axios
 			.patch(
-				`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos/${videoDetails.id}`,
+				`${import.meta.env.VITE_URL_SPHERUS_API}/videos/${videoDetails.id}`,
 				videoDetails,
 			)
 			.then(() => {

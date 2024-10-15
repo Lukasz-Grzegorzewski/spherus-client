@@ -11,13 +11,13 @@ function AdminFixtures() {
 
 	const getHeroInfo = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/fixtures`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/fixtures`)
 			.then((res) => setFixturesData(res.data))
 			.catch((err) => console.error(err));
 	}, []);
 	const getCategories = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/categories`)
 			.then((res) => setGetAllCategories(res.data))
 			.catch((err) => console.error(err));
 	}, []);

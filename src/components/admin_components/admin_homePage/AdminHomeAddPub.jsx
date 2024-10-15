@@ -10,7 +10,7 @@ function AdminHomeAddPub({ setAddPub, setAddSection, getHome }) {
 
   const getPub = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/publicities`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/publicities`)
       .then((res) => {
         setPub(res.data);
       })
@@ -27,7 +27,7 @@ function AdminHomeAddPub({ setAddPub, setAddSection, getHome }) {
 
   const addComp = () => {
     axios
-      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home`, {
+      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/home`, {
         position: 0,
         type: 2,
         idLink: `${idPub}`,

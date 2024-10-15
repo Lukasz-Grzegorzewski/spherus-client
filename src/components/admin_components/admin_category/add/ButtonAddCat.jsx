@@ -11,7 +11,7 @@ function ButtonAddCat({ getCategories }) {
 		if (addedCat.name.trim() !== "" && addedCat.name.length >= 3) {
 			axios
 				.post(
-					`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories/`,
+					`${import.meta.env.VITE_URL_SPHERUS_API}/categories/`,
 					addedCat,
 				) /* addedCat es un objeto, como lo que se pone en Postman para añadir un user */
 				.then(() => {

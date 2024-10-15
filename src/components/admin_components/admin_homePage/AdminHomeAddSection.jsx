@@ -14,7 +14,7 @@ function AdminHomeAddSection({ setAddSection, setAddPub, getHome }) {
 
   const getCat = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/categories`)
       .then((res) => {
         setCat(res.data);
       })
@@ -31,7 +31,7 @@ function AdminHomeAddSection({ setAddSection, setAddPub, getHome }) {
 
   const addComp = () => {
     axios
-      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home`, {
+      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/home`, {
         position: 0,
         type: `${type}`,
         idLink: `${idCat}`,

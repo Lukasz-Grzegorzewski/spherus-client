@@ -8,7 +8,7 @@ function HomeDisplay() {
 	useEffect(() => {
 		const getHome = () => {
 			axios
-				.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home`)
+				.get(`${import.meta.env.VITE_URL_SPHERUS_API}/home`)
 				.then((res) => {
 					if (res.data && Array.isArray(res.data)) setCurrentHome(res.data);
 				})

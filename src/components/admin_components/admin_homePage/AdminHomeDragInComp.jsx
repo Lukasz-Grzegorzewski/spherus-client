@@ -47,14 +47,14 @@ class AdminHomeDragInComp extends Component {
 
 		axios
 			.get(
-				`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos/categories/${idCat}`,
+				`${import.meta.env.VITE_URL_SPHERUS_API}/videos/categories/${idCat}`,
 			)
 			.then((res) => {
 				this.setState({ items: res.data });
 			})
 			.catch((err) => console.error(err));
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories/${idCat}`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/categories/${idCat}`)
 			.then((res) => {
 				this.setState({ catName: res.data });
 				this.setState({ bigShow: true });
@@ -105,7 +105,7 @@ class AdminHomeDragInComp extends Component {
 		// eslint-disable-next-line react/destructuring-assignment
 		this.state.selected.forEach((element) => {
 			axios
-				.post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home/videos/`, {
+				.post(`${import.meta.env.VITE_URL_SPHERUS_API}/home/videos/`, {
 					videoId: `${element.id}`,
 					// eslint-disable-next-line react/destructuring-assignment
 					sectionId: this.props.idSection,

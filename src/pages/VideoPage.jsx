@@ -27,7 +27,7 @@ function VideoPage() {
   const getVideo = useCallback(
     (idArg) => {
       axios
-        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos/cat/${idArg}`)
+        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/videos/cat/${idArg}`)
         .then((res) => {
           setVideo(res.data[0]);
           return res.data;

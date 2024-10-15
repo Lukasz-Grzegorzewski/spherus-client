@@ -14,7 +14,7 @@ function Categories({ catId, getCategories, catName, setCatId }) {
 	const getVideosByCategorie = useCallback(() => {
 		axios
 			.get(
-				`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos/categories/${catId}`,
+				`${import.meta.env.VITE_URL_SPHERUS_API}/videos/categories/${catId}`,
 			)
 			.then((res) => {
 				setSelectVideos(res.data);
@@ -33,7 +33,7 @@ function Categories({ catId, getCategories, catName, setCatId }) {
 			.delete(
 				`${
 					import.meta.env.VITE_URL_SPHERUS_API
-				}/api/videos/cat/${videoId}/${catId}`,
+				}/videos/cat/${videoId}/${catId}`,
 			)
 			.then(() => {
 				getVideosByCategorie();

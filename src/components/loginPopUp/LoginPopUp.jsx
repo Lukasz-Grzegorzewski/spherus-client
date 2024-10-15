@@ -19,7 +19,7 @@ function LoginPopUp({ setUserContext, setControlPopUpLogIn }) {
 	const login = (e) => {
 		e.preventDefault();
 		axios
-			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/login`, loginDetails)
+			.post(`${import.meta.env.VITE_URL_SPHERUS_API}/login`, loginDetails)
 			.then((res) => {
 				setUserContext(res.data);
 				localStorage.setItem(

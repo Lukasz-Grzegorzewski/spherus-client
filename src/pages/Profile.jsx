@@ -18,7 +18,7 @@ function Profile({ iduser }) {
 
   const getUser = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${iduser}`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${iduser}`)
       .then((res) => {
         setUser(res.data);
       })

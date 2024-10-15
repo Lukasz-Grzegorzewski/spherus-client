@@ -9,7 +9,7 @@ function AdminAd() {
 
 	const getPub = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/publicities`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/publicities`)
 			.then((res) => {
 				setPub(res.data);
 			});

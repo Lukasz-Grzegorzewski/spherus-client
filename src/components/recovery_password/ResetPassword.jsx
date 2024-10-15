@@ -11,7 +11,7 @@ function Recovered() {
 
 	const updatePassword = () => {
 		axios
-			.patch(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${id}`, {
+			.patch(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${id}`, {
 				password,
 			})
 			.then(() => {

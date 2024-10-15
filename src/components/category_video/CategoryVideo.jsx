@@ -15,7 +15,7 @@ function CategoryVideo() {
         .get(
           `${
             import.meta.env.VITE_URL_SPHERUS_API
-          }/api/videos/categories/${idVideo}`
+          }/videos/categories/${idVideo}`
         )
         .then((res) => {
           setVideo(res.data);

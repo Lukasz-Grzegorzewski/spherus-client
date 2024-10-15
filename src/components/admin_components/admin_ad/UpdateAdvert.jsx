@@ -13,7 +13,7 @@ function UpdateAdvert({ pub, getPub }) {
 
 	const getAllPub = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/publicities/${idPub}`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/publicities/${idPub}`)
 			.then((res) => {
 				setInfoPub(res.data);
 				setName(res.data.name);
@@ -37,7 +37,7 @@ function UpdateAdvert({ pub, getPub }) {
 
 	const updateAdd = () => {
 		axios
-			.put(`${import.meta.env.VITE_URL_SPHERUS_API}/api/publicities/${idPub}`, {
+			.put(`${import.meta.env.VITE_URL_SPHERUS_API}/publicities/${idPub}`, {
 				description: `${description}`,
 				urlLink: `${urlLink}`,
 				name: `${name}`,

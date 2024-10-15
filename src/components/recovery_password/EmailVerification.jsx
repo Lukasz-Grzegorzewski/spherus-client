@@ -50,7 +50,7 @@ function EmailVerification() {
 
   const getEmailById = useCallback((idUserParam) => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${idUserParam}`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${idUserParam}`)
       .then((result) => setEmail(result.data.email))
       .catch((err) => console.error(err));
   }, []);
@@ -58,7 +58,7 @@ function EmailVerification() {
   const getCodeTmp = useCallback((idUserParam) => {
     axios
       .get(
-        `${import.meta.env.VITE_URL_SPHERUS_API}/api/users/code/${idUserParam}`
+        `${import.meta.env.VITE_URL_SPHERUS_API}/users/code/${idUserParam}`
       )
       .then((result) => setCodeFromDB(result.data[0].code_tmp))
       .catch((err) => console.error(err));
@@ -78,7 +78,7 @@ function EmailVerification() {
   function handleResendRandomCode() {
     if (disable) return;
     axios
-      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/send_recovery_email`, {
+      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/send_recovery_email`, {
         OTP: codeFromDB,
         recipientEmail: email,
       })

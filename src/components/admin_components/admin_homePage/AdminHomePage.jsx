@@ -11,7 +11,7 @@ function AdminHomePage() {
 
   const getHome = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/home`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/home`)
       .then((res) => {
         setCurrentHome(res.data);
       })

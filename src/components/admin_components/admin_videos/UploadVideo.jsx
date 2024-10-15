@@ -25,7 +25,7 @@ function UploadVideo({ getVideo }) {
 
   const uploadVideo = (data) => {
     axios
-      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos`, data)
+      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/videos`, data)
       .then(() => {
         setCheck(true);
         clearInput();
@@ -55,7 +55,7 @@ function UploadVideo({ getVideo }) {
   useEffect(() => {
     const choseCategory = () => {
       axios
-        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories`)
+        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/categories`)
         .then((res) => {
           setCategory(res.data);
         })
@@ -69,7 +69,7 @@ function UploadVideo({ getVideo }) {
   useEffect(() => {
     const linkCategory = () => {
       axios
-        .post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/category/video`)
+        .post(`${import.meta.env.VITE_URL_SPHERUS_API}/category/video`)
         .catch(() => {
           console.error('video not uploaded');
         });

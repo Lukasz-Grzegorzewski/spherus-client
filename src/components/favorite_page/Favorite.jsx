@@ -14,7 +14,7 @@ function Favorite() {
     const getFavorite = (idContext) => {
       axios
         .get(
-          `${import.meta.env.VITE_URL_SPHERUS_API}/api/favorites/${idContext}`
+          `${import.meta.env.VITE_URL_SPHERUS_API}/favorites/${idContext}`
         )
         .then((res) => {
           const uniqueArr = res.data.reduce((acc, current) => {

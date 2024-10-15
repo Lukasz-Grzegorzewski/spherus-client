@@ -9,7 +9,7 @@ function UpdateUserByUser({ type, keyName, id, getUser, closeUpdateInput }) {
 	function handleSubmit(e) {
 		e.preventDefault();
 		axios
-			.patch(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${id}`, {
+			.patch(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${id}`, {
 				[keyName]: data,
 			})
 			.then(() => {

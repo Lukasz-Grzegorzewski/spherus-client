@@ -10,7 +10,7 @@ function AddHero({ getHeroInfo, add, setAdd }) {
 
   const getCat = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/categories`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/categories`)
       .then((res) => {
         setCat(res.data);
       });
@@ -25,7 +25,7 @@ function AddHero({ getHeroInfo, add, setAdd }) {
       .get(
         `${
           import.meta.env.VITE_URL_SPHERUS_API
-        }/api/videos/categories/${valueCat}`
+        }/videos/categories/${valueCat}`
       )
       .then((res) => {
         setVideos(res.data);
@@ -38,7 +38,7 @@ function AddHero({ getHeroInfo, add, setAdd }) {
 
   const updateHero = () => {
     axios
-      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/api/hero_slider`, {
+      .post(`${import.meta.env.VITE_URL_SPHERUS_API}/hero_slider`, {
         fkVideo: `${valueVideo}`,
       })
       .then((res) => {

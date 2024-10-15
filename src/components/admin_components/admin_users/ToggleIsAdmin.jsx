@@ -8,7 +8,7 @@ function ToggleIsAdmin({ id }) {
   const getUserById = useCallback(
     (uid) => {
       axios
-        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${uid}`)
+        .get(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${uid}`)
         .then((res) => {
           setIsChecked(res.data.is_admin !== 0);
         })
@@ -19,7 +19,7 @@ function ToggleIsAdmin({ id }) {
 
   function handleToggle() {
     axios
-      .patch(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${id}`, {
+      .patch(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${id}`, {
         isAdmin: isChecked ? 0 : 1,
       })
       .then(() => {

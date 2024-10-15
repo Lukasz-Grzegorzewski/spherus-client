@@ -83,7 +83,7 @@ function App() {
 
 	const getUser = useCallback((tokeuUserId) => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/users/${tokeuUserId}`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/users/${tokeuUserId}`)
 			.then((res) => {
 				setAvatarUrlContext(res.data.url);
 			})

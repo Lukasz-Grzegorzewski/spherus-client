@@ -10,7 +10,7 @@ function AdminHeroSlider() {
 
 	const getHeroInfo = useCallback(() => {
 		axios
-			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/hero_slider`)
+			.get(`${import.meta.env.VITE_URL_SPHERUS_API}/hero_slider`)
 			.then((res) => {
 				setHeroInfo(res.data);
 				setShow(true);

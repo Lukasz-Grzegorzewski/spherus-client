@@ -9,7 +9,7 @@ function AdminVideos() {
 
   const getVideo = useCallback(() => {
     axios
-      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos`)
+      .get(`${import.meta.env.VITE_URL_SPHERUS_API}/videos`)
       .then((res) => {
         setVideo(res.data);
       })

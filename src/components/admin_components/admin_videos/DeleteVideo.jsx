@@ -8,7 +8,7 @@ function DeleteVideo({ video, getVideo }) {
 	const [check, setCheck] = useState(false);
 	const deleteVideo = () => {
 		axios
-			.delete(`${import.meta.env.VITE_URL_SPHERUS_API}/api/videos/${videoId}`)
+			.delete(`${import.meta.env.VITE_URL_SPHERUS_API}/videos/${videoId}`)
 			.then(() => {
 				setCheck(true);
 				getVideo();
